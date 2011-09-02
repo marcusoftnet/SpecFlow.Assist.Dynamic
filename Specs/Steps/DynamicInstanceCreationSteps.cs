@@ -6,49 +6,39 @@ using TechTalk.SpecFlow;
 namespace Specs.Steps
 {
     [Binding]
-    public class DynamicObjectCreationSteps
+    public class DynamicInstanceCreationSteps
     {
-        private dynamic _person;
 
+        [Given(@"I create a dynamic instance from this table")]
         [When(@"I create a dynamic instance from this table")]
         public void CreateDynamicInstanceFromTable(Table table)
         {
-            _person = table.CreateDynamicInstance();
+            State.Instance = table.CreateDynamicInstance();
         }
 
         [Then(@"the Name property should equal '(.*)'")]
         public void NameShouldBe(string expectedValue)
         {
-            ((string)_person.Name).Should().Equal(expectedValue);
+            ((string)State.Instance.Name).Should().Equal(expectedValue);
         }
 
         [Then(@"the Age property should equal (\d+)")]
         public void AgeShouldBe(int expectedAge)
         {
-            ((int)_person.Age).Should().Equal(expectedAge);
+            ((int)State.Instance.Age).Should().Equal(expectedAge);
         }
 
         [Then(@"the BirthDate property should equal (.*)")]
         public void BirthDateShouldBe(string expectedDate)
         {
-            ((DateTime)_person.BirthDate).Should().Equal(DateTime.Parse(expectedDate));
+            ((DateTime)State.Instance.BirthDate).Should().Equal(DateTime.Parse(expectedDate));
         }
 
         [Then(@"the LengthInMeters property should equal (.*)")]
         public void LengthInMeterShouldBe(string doubleString)
         {
             var expectedDouble = double.Parse(doubleString);
-            ((double)_person.LengthInMeters).Should().Equal(expectedDouble);
+            ((double)State.Instance.LengthInMeters).Should().Equal(expectedDouble);
         }
-
-        [Then(@"the dynamic instance should match this table")]
-        public void DynamicInstanceShouldMatch(Table table)
-        {
-            ScenarioContext.Current.Pending();
-            //DynamicTableHelpers.CompareToDynamicInstance(table, _person);
-        }
-
-        
-
     }
 }
