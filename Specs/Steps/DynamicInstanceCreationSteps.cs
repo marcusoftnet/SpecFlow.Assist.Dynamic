@@ -1,7 +1,7 @@
 ﻿using System;
 using Should.Fluent;
-using SpecFlow.Assist.Dynamic;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Specs.Steps
 {

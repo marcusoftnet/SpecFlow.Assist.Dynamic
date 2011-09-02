@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using Should.Fluent;
-using SpecFlow.Assist.Dynamic;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

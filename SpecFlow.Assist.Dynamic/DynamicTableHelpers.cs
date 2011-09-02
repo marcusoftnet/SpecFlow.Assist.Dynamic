@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using ImpromptuInterface;
-using TechTalk.SpecFlow;
 
-namespace SpecFlow.Assist.Dynamic
+namespace TechTalk.SpecFlow.Assist
 {
     public static class DynamicTableHelpers
     {

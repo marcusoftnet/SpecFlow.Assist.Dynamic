@@ -2,7 +2,6 @@
 using Should.Fluent;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using SpecFlow.Assist.Dynamic;
 
 namespace Specs.Steps
 {
