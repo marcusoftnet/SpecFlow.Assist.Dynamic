@@ -8,9 +8,10 @@ namespace Specs.Steps
     [Binding]
     public class DynamicInstanceComparisionSteps
     {
-        private const string EXCEPTION_KEY = "Exception";
 
-        private static DynamicInstanceComparisonException GetDifferenceException()
+        private const string EXCEPTION_KEY = "ExceptionKey";
+
+        private static DynamicInstanceComparisonException GetInstanceComparisonException()
         {
             var ex = ScenarioContext.Current[EXCEPTION_KEY] as DynamicInstanceComparisonException;
             ex.Should().Not.Be.Null();
@@ -19,7 +20,7 @@ namespace Specs.Steps
 
         private static void CheckForOneDifferenceContaingString(string expectedString)
         {
-            var ex = GetDifferenceException();
+            var ex = GetInstanceComparisonException();
             ex.Differences.Should().Contain.One(f => f.Contains(expectedString));
         }
 
@@ -28,27 +29,29 @@ namespace Specs.Steps
         {
             try
             {
-                DynamicTableHelpers.CompareToDynamicInstance(table, State.Instance);
+                table.CompareToDynamicInstance((object)State.OriginalInstance);
             }
-            catch (Exception ex)
+            catch (DynamicInstanceComparisonException ex)
             {
                 ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
             }
         }
 
-        [Then("no exception should have been thrown")]
+
+
+        [Then("no instance comparison exception should have been thrown")]
         public void NoException()
         {
             ScenarioContext.Current.ContainsKey(EXCEPTION_KEY).Should().Be.False();
         }
 
-        [Then(@"an difference exception should be thrown with (\d+) differences")]
-        [Then(@"an difference exception should be thrown with (\d+) difference")]
+        [Then(@"an instance comparison exception should be thrown with (\d+) differences")]
+        [Then(@"an instance comparison exception should be thrown with (\d+) difference")]
         public void ExceptionShouldHaveBeenThrown(int expectedNumberOfDifferences)
         {
             ScenarioContext.Current.ContainsKey(EXCEPTION_KEY).Should().Be.True();
 
-            var ex = GetDifferenceException();
+            var ex = GetInstanceComparisonException();
             ex.Differences.Should().Count.Exactly(expectedNumberOfDifferences);
         }
 

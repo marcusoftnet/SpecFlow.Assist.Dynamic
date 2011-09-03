@@ -13,32 +13,32 @@ namespace Specs.Steps
         [When(@"I create a dynamic instance from this table")]
         public void CreateDynamicInstanceFromTable(Table table)
         {
-            State.Instance = table.CreateDynamicInstance();
+            State.OriginalInstance = table.CreateDynamicInstance();
         }
 
         [Then(@"the Name property should equal '(.*)'")]
         public void NameShouldBe(string expectedValue)
         {
-            ((string)State.Instance.Name).Should().Equal(expectedValue);
+            ((string)State.OriginalInstance.Name).Should().Equal(expectedValue);
         }
 
         [Then(@"the Age property should equal (\d+)")]
         public void AgeShouldBe(int expectedAge)
         {
-            ((int)State.Instance.Age).Should().Equal(expectedAge);
+            ((int)State.OriginalInstance.Age).Should().Equal(expectedAge);
         }
 
         [Then(@"the BirthDate property should equal (.*)")]
         public void BirthDateShouldBe(string expectedDate)
         {
-            ((DateTime)State.Instance.BirthDate).Should().Equal(DateTime.Parse(expectedDate));
+            ((DateTime)State.OriginalInstance.BirthDate).Should().Equal(DateTime.Parse(expectedDate));
         }
 
         [Then(@"the LengthInMeters property should equal (.*)")]
         public void LengthInMeterShouldBe(string doubleString)
         {
             var expectedDouble = double.Parse(doubleString);
-            ((double)State.Instance.LengthInMeters).Should().Equal(expectedDouble);
+            ((double)State.OriginalInstance.LengthInMeters).Should().Equal(expectedDouble);
         }
     }
 }

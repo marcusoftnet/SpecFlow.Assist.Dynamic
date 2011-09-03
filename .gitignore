@@ -12,3 +12,4 @@ binaries
 *.user
 *.gpState
 TestResults
+*_mm_cache.bin

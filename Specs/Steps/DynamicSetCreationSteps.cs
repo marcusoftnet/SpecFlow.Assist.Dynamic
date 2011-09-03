@@ -10,25 +10,22 @@ namespace Specs.Steps
     [Binding]
     public class DynamicSetCreationSteps
     {
-        private IList<object> _dynamicSet;
-
-        private dynamic GetItem(int itemNumber)
+        private static dynamic GetItem(int itemNumber)
         {
-            return _dynamicSet[itemNumber - 1];
+            return State.OriginalSet[itemNumber - 1];
         }
 
-
+        [Given(@"I create a set of dynamic instances from this table")]
         [When(@"I create a set of dynamic instances from this table")]
         public void CreateSetFromTable(Table table)
         {
-            _dynamicSet = table.CreateDynamicSet();
+            State.OriginalSet = table.CreateDynamicSet();
         }
-
 
         [Then(@"I should have a list of (\d+) dynamic objects")]
         public void ShouldContain(int expectedNumberOfItems)
         {
-            _dynamicSet.Count.Should().Equal(expectedNumberOfItems);
+            State.OriginalSet.Count.Should().Equal(expectedNumberOfItems);
         }
 
         [Then(@"the (\d+) item should have BirthDate equal to '(.*)'")]

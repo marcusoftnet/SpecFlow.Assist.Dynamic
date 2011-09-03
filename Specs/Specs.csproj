@@ -60,6 +60,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ComparingDynamicInstances.feature</DependentUpon>
     </Compile>
+    <Compile Include="ComparingDynamicSets.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComparingDynamicSets.feature</DependentUpon>
+    </Compile>
     <Compile Include="DynamicInstancesFromTable.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,6 +76,7 @@
       <DependentUpon>DynamicSetFromTable.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\DynamicSetComparisonSteps.cs" />
     <Compile Include="Steps\DynamicInstanceComparisionSteps.cs" />
     <Compile Include="Steps\DynamicInstanceCreationSteps.cs" />
     <Compile Include="Steps\DynamicSetCreationSteps.cs" />
@@ -81,6 +87,10 @@
     <None Include="ComparingDynamicInstances.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ComparingDynamicInstances.feature.cs</LastGenOutput>
+    </None>
+    <None Include="ComparingDynamicSets.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ComparingDynamicSets.feature.cs</LastGenOutput>
     </None>
     <None Include="DynamicInstancesFromTable.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

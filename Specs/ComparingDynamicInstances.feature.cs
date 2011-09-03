@@ -98,7 +98,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.When("I compare it to this table", ((string)(null)), table2);
 #line 13
- testRunner.Then("no exception should have been thrown");
+ testRunner.Then("no instance comparison exception should have been thrown");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -125,7 +125,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 19
  testRunner.When("I compare it to this table", ((string)(null)), table4);
 #line 22
- testRunner.Then("an difference exception should be thrown with 2 differences");
+ testRunner.Then("an instance comparison exception should be thrown with 2 differences");
 #line 23
   testRunner.And("one difference should be on the \'Name\' field of the instance");
 #line 24
@@ -160,7 +160,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 30
  testRunner.When("I compare it to this table", ((string)(null)), table6);
 #line 33
- testRunner.Then("an difference exception should be thrown with 4 differences");
+ testRunner.Then("an instance comparison exception should be thrown with 4 differences");
 #line 34
   testRunner.And("one difference should be on the \'Name\' field of the instance");
 #line 35
@@ -195,7 +195,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 43
  testRunner.When("I compare it to this table", ((string)(null)), table8);
 #line 46
- testRunner.Then("an difference exception should be thrown with 1 difference");
+ testRunner.Then("an instance comparison exception should be thrown with 1 difference");
 #line 47
   testRunner.And("one difference should be on the \'Name\' property");
 #line 48
@@ -236,7 +236,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 55
  testRunner.When("I compare it to this table", ((string)(null)), table10);
 #line 58
- testRunner.Then("an difference exception should be thrown with 3 difference");
+ testRunner.Then("an instance comparison exception should be thrown with 3 difference");
 #line 59
   testRunner.And("one difference should be on the \'Name\' property");
 #line 60

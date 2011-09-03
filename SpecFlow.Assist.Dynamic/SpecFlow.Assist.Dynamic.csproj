@@ -46,6 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicInstanceComparisonException.cs" />
+    <Compile Include="DynamicInstanceFromTableException.cs" />
+    <Compile Include="DynamicSetComparisonException.cs" />
     <Compile Include="DynamicTableHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
