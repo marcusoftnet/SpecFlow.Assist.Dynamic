@@ -19,7 +19,6 @@ Scenario: Comparing against an identical table should match
 		| Arvid  | 1   | 2010-03-19 | 0.85             |
 	Then no set comparison exception should have been thrown
 
-@ignore
 Scenario: Not matching when 1 column name differ
 	Given I create a set of dynamic instances from this table
 		| Name   | 
@@ -33,11 +32,10 @@ Scenario: Not matching when 1 column name differ
 		| Albert |
 		| Gustav |
 		| Arvid  |
-	Then an difference exception should be thrown with 2 differences
-		And one difference should be on the 'Name' field of the instance
-		And one difference should be on the 'N' column of the table
+	Then an set comparision exception should be thrown with 2 differences
+		And one set difference should be on the 'Name' field of the instance
+		And one set difference should be on the 'N' column of the table
 
-@ignore
 Scenario: Not matching when 2 header differ
 	Given I create a set of dynamic instances from this table
 		| Name   | Age |
@@ -51,11 +49,11 @@ Scenario: Not matching when 2 header differ
 		| Albert | 3     |
 		| Gustav | 1     |
 		| Arvid  | 1     |
-	Then an difference exception should be thrown with 4 differences
-		And one difference should be on the 'Name' field of the instance
-		And one difference should be on the 'Age' field of the instance
-		And one difference should be on the 'Namn' column of the table
-		And one difference should be on the 'Ålder' column of the table
+	Then an set comparision exception should be thrown with 4 differences
+		And one set difference should be on the 'Name' field of the instance
+		And one set difference should be on the 'Age' field of the instance
+		And one set difference should be on the 'Namn' column of the table
+		And one set difference should be on the 'Ålder' column of the table
 
 Scenario: Not matching when the number of rows are more in the table
 	Given I create a set of dynamic instances from this table

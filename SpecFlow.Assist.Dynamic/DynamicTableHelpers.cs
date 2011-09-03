@@ -8,7 +8,8 @@ namespace TechTalk.SpecFlow.Assist
 {
     public static class DynamicTableHelpers
     {
-        private const string ERRORMESS_INSTANCETABLE_FORMAT =  "Can only create instances of tables with one row, or exactly 2 columns and several rows";
+        private const string ERRORMESS_PROPERTY_DIFF_SET = "Properties differs between the table and the set";
+        private const string ERRORMESS_INSTANCETABLE_FORMAT = "Can only create instances of tables with one row, or exactly 2 columns and several rows";
         private const string ERRORMESS_NOT_ON_TABLE = "The '{0}' value not present in the table, but on the instance";
         private const string ERRORMESS_NOT_ON_INSTANCE = "The '{0}' value not present on the instance, but in the table";
         private const string ERRORMESS_VALUE_DIFFERS =
@@ -46,7 +47,7 @@ namespace TechTalk.SpecFlow.Assist
         public static IList<dynamic> CreateDynamicSet(this Table table)
         {
             return table.Rows.
-                Select(CreateDynamicInstance).Cast<object>().ToList<object>();
+                Select(CreateDynamicInstance).ToList<object>();
         }
 
         /// <summary>
@@ -57,7 +58,9 @@ namespace TechTalk.SpecFlow.Assist
         /// <param name="instance">the instance to compare the table against</param>
         public static void CompareToDynamicInstance(this Table table, dynamic instance)
         {
-            AssertThatAllColumnsInTheTableMatchToPropertiesOnTheType(table, instance);
+            IList<string> propDiffs = GetPropertyDifferences(table, instance);
+            if (propDiffs.Any())
+                throw new DynamicInstanceComparisonException(propDiffs);
 
             AssertValuesOfRowDifference(table.Rows[0], instance);
         }
@@ -71,10 +74,13 @@ namespace TechTalk.SpecFlow.Assist
         public static void CompareToDynamicSet(this Table table, IList<dynamic> set)
         {
             AssertEqualNumberOfRows(table, set);
-            
-            AssertThatAllColumnsInTheTableMatchToPropertiesOnTheType(table, set[0]);
-        }
 
+            IList<string> propDiffs = GetPropertyDifferences(table, set[0]);
+            if (propDiffs.Any())
+            {
+                throw new DynamicSetComparisonException(ERRORMESS_PROPERTY_DIFF_SET, propDiffs);
+            }
+        }
 
         private static void AssertValuesOfRowDifference(TableRow tableRow, dynamic instance)
         {
@@ -83,21 +89,19 @@ namespace TechTalk.SpecFlow.Assist
                 throw new DynamicInstanceComparisonException(valueDiffs);
         }
 
-        private static void AssertThatAllColumnsInTheTableMatchToPropertiesOnTheType(Table table, dynamic instance)
+        private static IList<string> GetPropertyDifferences(Table table, dynamic instance)
         {
             var tableHeadersAsPropertyNames = table.Header.Select(CreatePropertyName);
             IEnumerable<string> instanceMembers = Impromptu.GetMemberNames(instance);
 
-            var propDiffs = GetPropertyNameDifferences(tableHeadersAsPropertyNames, instanceMembers);
-            if (propDiffs.Any())
-                throw new DynamicInstanceComparisonException(propDiffs);
+            return GetPropertyNameDifferences(tableHeadersAsPropertyNames, instanceMembers);
         }
 
         private static void AssertEqualNumberOfRows(Table table, IList<object> set)
         {
             if (table.RowCount != set.Count)
             {
-                var mess = string.Format(ERRORMESS_NUMBER_OF_ROWS_DIFFERS,table.RowCount, set.Count);
+                var mess = string.Format(ERRORMESS_NUMBER_OF_ROWS_DIFFERS, table.RowCount, set.Count);
                 throw new DynamicSetComparisonException(mess);
             }
         }

@@ -135,12 +135,10 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Not matching when 1 column name differ")]
-        [NUnit.Framework.IgnoreAttribute()]
         public virtual void NotMatchingWhen1ColumnNameDiffer()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when 1 column name differ", new string[] {
-                        "ignore"});
-#line 23
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when 1 column name differ", ((string[])(null)));
+#line 22
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -153,7 +151,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Gustav"});
             table3.AddRow(new string[] {
                         "Arvid"});
-#line 24
+#line 23
  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table3);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -166,26 +164,24 @@ this.ScenarioSetup(scenarioInfo);
                         "Gustav"});
             table4.AddRow(new string[] {
                         "Arvid"});
-#line 30
+#line 29
  testRunner.When("I compare the set to this table", ((string)(null)), table4);
+#line 35
+ testRunner.Then("an set comparision exception should be thrown with 2 differences");
 #line 36
- testRunner.Then("an difference exception should be thrown with 2 differences");
+  testRunner.And("one set difference should be on the \'Name\' field of the instance");
 #line 37
-  testRunner.And("one difference should be on the \'Name\' field of the instance");
-#line 38
-  testRunner.And("one difference should be on the \'N\' column of the table");
+  testRunner.And("one set difference should be on the \'N\' column of the table");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Not matching when 2 header differ")]
-        [NUnit.Framework.IgnoreAttribute()]
         public virtual void NotMatchingWhen2HeaderDiffer()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when 2 header differ", new string[] {
-                        "ignore"});
-#line 41
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when 2 header differ", ((string[])(null)));
+#line 39
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -203,7 +199,7 @@ this.ScenarioSetup(scenarioInfo);
             table5.AddRow(new string[] {
                         "Arvid",
                         "1"});
-#line 42
+#line 40
  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table5);
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -221,18 +217,18 @@ this.ScenarioSetup(scenarioInfo);
             table6.AddRow(new string[] {
                         "Arvid",
                         "1"});
-#line 48
+#line 46
  testRunner.When("I compare the set to this table", ((string)(null)), table6);
+#line 52
+ testRunner.Then("an set comparision exception should be thrown with 4 differences");
+#line 53
+  testRunner.And("one set difference should be on the \'Name\' field of the instance");
 #line 54
- testRunner.Then("an difference exception should be thrown with 4 differences");
+  testRunner.And("one set difference should be on the \'Age\' field of the instance");
 #line 55
-  testRunner.And("one difference should be on the \'Name\' field of the instance");
+  testRunner.And("one set difference should be on the \'Namn\' column of the table");
 #line 56
-  testRunner.And("one difference should be on the \'Age\' field of the instance");
-#line 57
-  testRunner.And("one difference should be on the \'Namn\' column of the table");
-#line 58
-  testRunner.And("one difference should be on the \'Ålder\' column of the table");
+  testRunner.And("one set difference should be on the \'Ålder\' column of the table");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -242,7 +238,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void NotMatchingWhenTheNumberOfRowsAreMoreInTheTable()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when the number of rows are more in the table", ((string[])(null)));
-#line 60
+#line 58
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -254,7 +250,7 @@ this.ScenarioSetup(scenarioInfo);
             table7.AddRow(new string[] {
                         "Albert",
                         "3"});
-#line 61
+#line 59
  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table7);
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -269,11 +265,11 @@ this.ScenarioSetup(scenarioInfo);
             table8.AddRow(new string[] {
                         "Arvid",
                         "1"});
-#line 65
+#line 63
  testRunner.When("I compare the set to this table", ((string)(null)), table8);
-#line 70
+#line 68
  testRunner.Then("an set comparison exception should be thrown");
-#line 71
+#line 69
   testRunner.And("the error message for different rows should expect 3 rows for table and 2 rows fo" +
                     "r instance");
 #line hidden
