@@ -44,10 +44,9 @@ namespace TechTalk.SpecFlow.Assist
         /// </summary>
         /// <param name="table">the table to create a set of dynamics from</param>
         /// <returns>a set of dynamics</returns>
-        public static IList<dynamic> CreateDynamicSet(this Table table)
+        public static IEnumerable<dynamic> CreateDynamicSet(this Table table)
         {
-            return table.Rows.
-                Select(CreateDynamicInstance).ToList<object>();
+            return table.Rows.Select(CreateDynamicInstance);
         }
 
         /// <summary>
