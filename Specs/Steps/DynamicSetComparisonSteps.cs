@@ -46,6 +46,7 @@ namespace Specs.Steps
         }
 
         [Then(@"an set comparision exception should be thrown with (\d+) differences")]
+        [Then(@"an set comparision exception should be thrown with (\d+) difference")]
         public void SetComparisionExceptionWithNumberOfDifferences(int expectedNumberOfDifference)
         {
             SetComparisonExceptionThrown();
@@ -73,6 +74,16 @@ namespace Specs.Steps
             CheckForOneDifferenceContaingString(expectedFieldToDiffer);
         }
 
+        [Then(@"(\d+) difference should be on row (\d+) on property '(.*)' for the values '(.*)' and '(.*)'")]
+        public void DifferenceOnValue(int differenceNumber, int rowNumber, string expectedProperty, string instanceValue, string tableRowValue)
+        {
+            var exception = GetSetComparisonException();
+            var difference = exception.Differences[differenceNumber -1];
+            difference.Contains("'" + rowNumber + "'");
+            difference.Contains("'" + expectedProperty + "'");
+            difference.Contains("'" + instanceValue + "'");
+            difference.Contains("'" + tableRowValue + "'");
+        }
 
     }
 

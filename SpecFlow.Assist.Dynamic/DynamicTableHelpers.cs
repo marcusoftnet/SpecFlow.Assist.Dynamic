@@ -13,10 +13,13 @@ namespace TechTalk.SpecFlow.Assist
         private const string ERRORMESS_NOT_ON_TABLE = "The '{0}' value not present in the table, but on the instance";
         private const string ERRORMESS_NOT_ON_INSTANCE = "The '{0}' value not present on the instance, but in the table";
         private const string ERRORMESS_VALUE_DIFFERS =
-            "The '{0}' value differs from table and instance.\n\tInstance: '{1}'.\n\tTable: '{2}'";
+            "The '{0}' value differs from table and instance.\n\tInstance:\t'{1}'.\n\tTable:\t\t'{2}'";
 
         private const string ERRORMESS_NUMBER_OF_ROWS_DIFFERS =
             "Number of rows for table ({0} rows) and set ({1} rows) differs";
+
+        private const string ERRORMESS_SET_VALUES_DIFFERS =
+            "A difference was found on row '{0}' for column '{1}' (property '{2}').\n\tInstance:\t'{3}'.\n\tTable:\t\t'{4}'";
 
         /// <summary>
         /// Create a dynamic object from the headers and values of the <paramref name="table"/>
@@ -79,6 +82,60 @@ namespace TechTalk.SpecFlow.Assist
             {
                 throw new DynamicSetComparisonException(ERRORMESS_PROPERTY_DIFF_SET, propDiffs);
             }
+
+            // Now we know that the table and the list has the same number of rows and properties
+
+            var valueDifference = GetSetValueDifferences(table, set);
+
+            if (valueDifference.Any())
+            {
+                throw new DynamicSetComparisonException(ERRORMESS_PROPERTY_DIFF_SET, valueDifference);
+            }
+        }
+
+        private static List<string> GetSetValueDifferences(Table table, IList<object> set)
+        {
+            var memberNames = Impromptu.GetMemberNames(set[0]);
+            var valueDifference = new List<string>();
+
+            for (var i = 0; i < set.Count; i++)
+            {
+                foreach (var memberName in memberNames)
+                {
+                    var currentHeader = string.Empty;
+                    var rowValue = GetRowValue(i, table, memberName, out currentHeader);
+                    var instanceValue = Impromptu.InvokeGet(set[i], memberName);
+
+                    if (!instanceValue.Equals(rowValue))
+                    {
+                        var difference = string.Format(ERRORMESS_SET_VALUES_DIFFERS,
+                                                       i + 1, 
+                                                       currentHeader, 
+                                                       memberName, 
+                                                       instanceValue, 
+                                                       rowValue);
+
+                        valueDifference.Add(difference);
+                    }
+                }
+            }
+            return valueDifference;
+        }
+
+        private static object GetRowValue(int rowIndex, Table table, string memberName, out string currentHeader)
+        {
+            object rowValue = null;
+            currentHeader = string.Empty;
+            foreach (var header in table.Header)
+            {
+                if (CreatePropertyName(header) == memberName)
+                {
+                    currentHeader = header;
+                    rowValue = CreateTypedValue(table.Rows[rowIndex][header]);
+                    break;
+                }
+            }
+            return rowValue;
         }
 
         private static void AssertValuesOfRowDifference(TableRow tableRow, dynamic instance)

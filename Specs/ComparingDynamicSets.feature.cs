@@ -85,7 +85,7 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "Albert",
                         "3",
-                        "2008-01.24",
+                        "2008-01-24",
                         "1.03"});
             table1.AddRow(new string[] {
                         "Gustav",
@@ -113,7 +113,7 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "Albert",
                         "3",
-                        "2008-01.24",
+                        "2008-01-24",
                         "1.03"});
             table2.AddRow(new string[] {
                         "Gustav",
@@ -272,6 +272,173 @@ this.ScenarioSetup(scenarioInfo);
 #line 69
   testRunner.And("the error message for different rows should expect 3 rows for table and 2 rows fo" +
                     "r instance");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Differences on 1 value in 1 row should throw exceptions")]
+        public virtual void DifferencesOn1ValueIn1RowShouldThrowExceptions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Differences on 1 value in 1 row should throw exceptions", ((string[])(null)));
+#line 71
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table9.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table9.AddRow(new string[] {
+                        "Albert",
+                        "3",
+                        "2008-01-24",
+                        "1.03"});
+#line 72
+ testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table9);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table10.AddRow(new string[] {
+                        "Hugo",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table10.AddRow(new string[] {
+                        "Albert",
+                        "3",
+                        "2008-01-24",
+                        "1.03"});
+#line 76
+ testRunner.When("I compare the set to this table", ((string)(null)), table10);
+#line 80
+ testRunner.Then("an set comparision exception should be thrown with 1 difference");
+#line 81
+  testRunner.And("1 difference should be on row 1 on property \'Name\' for the values \'Marcus\' and \'H" +
+                    "ugo\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Differences on 2 value in 2 different row should throw exceptions")]
+        public virtual void DifferencesOn2ValueIn2DifferentRowShouldThrowExceptions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Differences on 2 value in 2 different row should throw exceptions", ((string[])(null)));
+#line 83
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table11.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table11.AddRow(new string[] {
+                        "Albert",
+                        "3",
+                        "2008-01-24",
+                        "0.03"});
+#line 84
+ testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table11);
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table12.AddRow(new string[] {
+                        "Hugo",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table12.AddRow(new string[] {
+                        "Albert",
+                        "3",
+                        "2008-01-24",
+                        "1.03"});
+#line 88
+ testRunner.When("I compare the set to this table", ((string)(null)), table12);
+#line 92
+ testRunner.Then("an set comparision exception should be thrown with 2 difference");
+#line 93
+  testRunner.And("1 difference should be on row 1 on property \'Name\' for the values \'Marcus\' and \'H" +
+                    "ugo\'");
+#line 94
+  testRunner.And("2 difference should be on row 2 on property \'LengthInMeters\' for the values \'0.03" +
+                    "\' and \'1.03\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Differences on 4 value on 1 row should throw exceptions")]
+        public virtual void DifferencesOn4ValueOn1RowShouldThrowExceptions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Differences on 4 value on 1 row should throw exceptions", ((string[])(null)));
+#line 96
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table13.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table13.AddRow(new string[] {
+                        "Albert",
+                        "3",
+                        "2008-01-24",
+                        "1.03"});
+#line 97
+ testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table13);
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table14.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table14.AddRow(new string[] {
+                        "Hugo",
+                        "2",
+                        "2010-01-24",
+                        "0.03"});
+#line 101
+ testRunner.When("I compare the set to this table", ((string)(null)), table14);
+#line 105
+ testRunner.Then("an set comparision exception should be thrown with 4 difference");
+#line 106
+  testRunner.And("1 difference should be on row 2 on property \'Name\' for the values \'Marcus\' and \'H" +
+                    "ugo\'");
+#line 107
+  testRunner.And("2 difference should be on row 2 on property \'Age\' for the values \'3\' and \'2\'");
+#line 108
+  testRunner.And("3 difference should be on row 2 on property \'BirthDate\' for the values \'2008-01-2" +
+                    "4 12:00AM\' and \'2010-01-24 12:00AM\'");
+#line 109
+  testRunner.And("4 difference should be on row 2 on property \'LengthInMeters\' for the values \'1.03" +
+                    "\' and \'0.03\'");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -85,7 +85,7 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "Albert",
                         "3",
-                        "2008-01.24",
+                        "2008-01-24",
                         "1.03"});
             table1.AddRow(new string[] {
                         "Gustav",
@@ -114,7 +114,7 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "Albert",
                         "3",
-                        "2008-01.24",
+                        "2008-01-24",
                         "1.03"});
             table2.AddRow(new string[] {
                         "Gustav",
