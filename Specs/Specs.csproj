@@ -55,6 +55,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnNameToPropertyConventions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColumnNameToPropertyConventions.feature</DependentUpon>
+    </Compile>
     <Compile Include="ComparingDynamicInstances.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +95,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ColumnNameToPropertyConventions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ColumnNameToPropertyConventions.feature.cs</LastGenOutput>
+    </None>
     <None Include="ComparingDynamicInstances.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ComparingDynamicInstances.feature.cs</LastGenOutput>

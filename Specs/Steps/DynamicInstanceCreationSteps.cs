@@ -29,6 +29,12 @@ namespace Specs.Steps
             ((int)State.OriginalInstance.Age).Should().Equal(expectedAge);
         }
 
+        [Then(@"the age property should equal (\d+)")]
+        public void ThenTheAgePropertyShouldEqual39(int expectedAge)
+        {
+            ((int) State.OriginalInstance.age).Should().Equal(expectedAge);
+        }
+
         [Then(@"the BirthDate property should equal (.*)")]
         public void BirthDateShouldBe(string expectedDate)
         {
@@ -41,5 +47,13 @@ namespace Specs.Steps
             var expectedDouble = double.Parse(doubleString);
             ((double)State.OriginalInstance.LengthInMeters).Should().Equal(expectedDouble);
         }
+
+        [Then(@"the SATScore should be (\d+)")]
+        public void SATTest(int expectedScore)
+        {
+            ((int) State.OriginalInstance.SATScore).Should().Equal(expectedScore);
+        }
+
+
     }
 }
