@@ -1,5 +1,7 @@
 # SpecFlow.Assist.Dynamic
 
+This file is just a teaser... Be sure to check-out the documentation (https://github.com/marcushammarberg/SpecFlow.Assist.Dynamic/wiki/Documentation)
+
 SpecFlow.Assist.Dynamic is a couple of simple extension methods for the SpecFlow Table object that helps you to write less code. 
 
 What would you rather write? 
