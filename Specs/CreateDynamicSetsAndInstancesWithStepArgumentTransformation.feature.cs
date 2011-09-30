@@ -172,6 +172,32 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Test property with step argrument transformation")]
+        public virtual void TestPropertyWithStepArgrumentTransformation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test property with step argrument transformation", ((string[])(null)));
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table5.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+#line 31
+ testRunner.Given("I create a dynamic instance from this table using step argument transformation", ((string)(null)), table5);
+#line 34
+ testRunner.Then("the Name property should equal \'Marcus\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #endregion

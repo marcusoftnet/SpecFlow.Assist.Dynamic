@@ -4,7 +4,6 @@
     <section name="specFlow" type="TechTalk.SpecFlow.Configuration.ConfigurationSectionHandler, TechTalk.SpecFlow" />
   </configSections>
   <specFlow>
-    <!-- For additional details on SpecFlow configuration options see https://github.com/techtalk/SpecFlow/wiki/Configuration -->
     <stepAssemblies>
        <stepAssembly assembly="SpecFlow.Assist.Dynamic" /> 
     </stepAssemblies>

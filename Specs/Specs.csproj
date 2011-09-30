@@ -55,6 +55,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="ColumnNameToPropertyConventions.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

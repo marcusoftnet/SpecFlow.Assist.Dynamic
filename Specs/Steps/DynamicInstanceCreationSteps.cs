@@ -30,7 +30,7 @@ namespace Specs.Steps
         }
 
         [Then(@"the age property should equal (\d+)")]
-        public void ThenTheAgePropertyShouldEqual39(int expectedAge)
+        public void LowerCaseAgeShouldBe(int expectedAge)
         {
             ((int) State.OriginalInstance.age).Should().Equal(expectedAge);
         }

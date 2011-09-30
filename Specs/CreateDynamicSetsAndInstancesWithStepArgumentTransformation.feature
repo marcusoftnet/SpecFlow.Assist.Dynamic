@@ -26,3 +26,9 @@ Scenario: Matching a dynamic instance against a table
 		| Name   | Age | Birth date | Length in meters |
 		| Marcus | 39  | 1972-10-09 | 1.96             |
 	Then no instance comparison exception should have been thrown
+
+Scenario: Test property with step argrument transformation
+	Given I create a dynamic instance from this table using step argument transformation
+		| Name   | Age | Birth date | Length in meters |
+		| Marcus | 39  | 1972-10-09 | 1.96             |
+	Then the Name property should equal 'Marcus'
