@@ -1,6 +1,6 @@
 # SpecFlow.Assist.Dynamic
 
-Just to be clear - I rather have this whole projec in SpecFlow core - but couldn't make that happen due to the solution I'm using and it's dependencies which didn't play nicely with signed assemblies :(
+Just to be clear - I rather have this whole project in SpecFlow core - but couldn't make that happen due to the solution I'm using and it's dependencies which didn't play nicely with signed assemblies :(
 
 This file is just a teaser... Be sure to check-out the documentation (https://github.com/marcushammarberg/SpecFlow.Assist.Dynamic/wiki/Documentation)
 
