@@ -3,7 +3,7 @@ Feature: Comparing dynamic sets against tables
 	In order to easier and slicker do assertions
 	As a SpecFlow developer
 	I want to be able to compare a list of dynamic items against a table
-	
+
 Scenario: Comparing against an identical table should match
 	Given I create a set of dynamic instances from this table
 		| Name   | Age | Birth date | Length in meters |
