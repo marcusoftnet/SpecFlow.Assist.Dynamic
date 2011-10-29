@@ -1,1 +1,1 @@
-nuget push SpecFlow.Assist.Dynamic.%1.nupkg
+nuget push SpecFlow.Assist.Dynamic.nupkg
