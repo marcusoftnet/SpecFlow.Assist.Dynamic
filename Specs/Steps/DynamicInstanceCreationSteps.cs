@@ -54,6 +54,11 @@ namespace Specs.Steps
             ((int) State.OriginalInstance.SATScore).Should().Equal(expectedScore);
         }
 
+        [Then(@"the IsDeveloper property should equal '(.*)'")]
+        public void ThenTheIsDeveloperPropertyShouldEqualTrueAndBeOfTypeBool(bool expectedValue)
+        {
+            ((bool) State.OriginalInstance.IsDeveloper).Should().Equal(expectedValue);
+        }
 
     }
 }

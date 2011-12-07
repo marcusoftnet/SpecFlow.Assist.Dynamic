@@ -239,6 +239,10 @@ namespace TechTalk.SpecFlow.Assist
             if (Double.TryParse(valueFromTable, out d))
                 return d;
 
+            bool b;
+            if (Boolean.TryParse(valueFromTable, out b))
+                return b;
+
             return valueFromTable;
         }
 
