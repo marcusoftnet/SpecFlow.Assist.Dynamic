@@ -20,15 +20,16 @@ Scenario: Creating dynamic set with the use of step argument transformation
 
 Scenario: Matching a dynamic instance against a table
 	Given I create a dynamic instance from this table using step argument transformation
-		| Name   | Age | Birth date | Length in meters |
-		| Marcus | 39  | 1972-10-09 | 1.96             |
+		| Name   | Age | Birth date | Length in meters | Is Developer |
+		| Marcus | 39  | 1972-10-09 | 1.96             | true         |
 	When I compare it to this table using step argument transformation
-		| Name   | Age | Birth date | Length in meters |
-		| Marcus | 39  | 1972-10-09 | 1.96             |
+		| Name   | Age | Birth date | Length in meters | Is Developer |
+		| Marcus | 39  | 1972-10-09 | 1.96             | true         |
 	Then no instance comparison exception should have been thrown
 
-Scenario: Test property with step argrument transformation
+Scenario: Test property with step argument transformation
 	Given I create a dynamic instance from this table using step argument transformation
-		| Name   | Age | Birth date | Length in meters |
-		| Marcus | 39  | 1972-10-09 | 1.96             |
+		| Name   | Age | Birth date | Length in meters | Is Developer |
+		| Marcus | 39  | 1972-10-09 | 1.96             | true         |
 	Then the Name property should equal 'Marcus'
+	And the IsDeveloper property should equal 'true'

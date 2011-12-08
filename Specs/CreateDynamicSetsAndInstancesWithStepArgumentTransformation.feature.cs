@@ -147,12 +147,14 @@ this.ScenarioSetup(scenarioInfo);
                         "Name",
                         "Age",
                         "Birth date",
-                        "Length in meters"});
+                        "Length in meters",
+                        "Is Developer"});
             table3.AddRow(new string[] {
                         "Marcus",
                         "39",
                         "1972-10-09",
-                        "1.96"});
+                        "1.96",
+                        "true"});
 #line 22
  testRunner.Given("I create a dynamic instance from this table using step argument transformation", ((string)(null)), table3);
 #line hidden
@@ -160,12 +162,14 @@ this.ScenarioSetup(scenarioInfo);
                         "Name",
                         "Age",
                         "Birth date",
-                        "Length in meters"});
+                        "Length in meters",
+                        "Is Developer"});
             table4.AddRow(new string[] {
                         "Marcus",
                         "39",
                         "1972-10-09",
-                        "1.96"});
+                        "1.96",
+                        "true"});
 #line 25
  testRunner.When("I compare it to this table using step argument transformation", ((string)(null)), table4);
 #line 28
@@ -175,10 +179,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Test property with step argrument transformation")]
-        public virtual void TestPropertyWithStepArgrumentTransformation()
+        [NUnit.Framework.DescriptionAttribute("Test property with step argument transformation")]
+        public virtual void TestPropertyWithStepArgumentTransformation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test property with step argrument transformation", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test property with step argument transformation", ((string[])(null)));
 #line 30
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -186,16 +190,20 @@ this.ScenarioSetup(scenarioInfo);
                         "Name",
                         "Age",
                         "Birth date",
-                        "Length in meters"});
+                        "Length in meters",
+                        "Is Developer"});
             table5.AddRow(new string[] {
                         "Marcus",
                         "39",
                         "1972-10-09",
-                        "1.96"});
+                        "1.96",
+                        "true"});
 #line 31
  testRunner.Given("I create a dynamic instance from this table using step argument transformation", ((string)(null)), table5);
 #line 34
  testRunner.Then("the Name property should equal \'Marcus\'");
+#line 35
+ testRunner.And("the IsDeveloper property should equal \'true\'");
 #line hidden
             this.ScenarioCleanup();
         }
