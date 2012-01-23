@@ -1,2 +1,3 @@
-nuget pack SpecFlow.Assist.Dynamic.csproj -Properties Configuration=Release
+nuget pack SpecFlow.Assist.Dynamic.nuspec -Version %1
+
 pause
