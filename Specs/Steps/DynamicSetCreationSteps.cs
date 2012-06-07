@@ -49,11 +49,10 @@ namespace Specs.Steps
             Assert.AreEqual(expectedName, GetItem(itemNumber).Name);
         }
 
-        [Then(@"the (\d+) item should have LengthInMeters equal to '(.*)'")]
-        public void ItemInSetShouldHaveExpectedLenghtInMeters(int itemNumber, string expectedLengthInMetersItem)
+        [Then(@"the (\d+) item should have LengthInMeters equal to '(\d+\.\d+)'")]
+        public void ItemInSetShouldHaveExpectedLenghtInMeters(int itemNumber, double expectedLengthInMetersItem)
         {
-            var length = double.Parse(expectedLengthInMetersItem);
-            Assert.AreEqual(length, GetItem(itemNumber).LengthInMeters);
+            Assert.AreEqual(expectedLengthInMetersItem, GetItem(itemNumber).LengthInMeters);
         }
     }
 }

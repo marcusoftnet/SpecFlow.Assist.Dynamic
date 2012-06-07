@@ -16,14 +16,14 @@ Scenario: Two word in the column headers is converted to camel cased properties
 		| Birth date | Length in meters |
 		| 1972-10-09 | 1.96             |
 	Then the BirthDate property should equal 1972-10-09
-		And the LengthInMeters property should equal 1.96
+		And the LengthInMeters property should equal '1.96'
 
 Scenario: Even if you go crazy with naming you columns we try to shape it up
 	When I create a dynamic instance from this table
 		| Birth dAtE | Length IN mETERs |
 		| 1972-10-09 | 1.96             |
 	Then the BirthDate property should equal 1972-10-09
-		And the LengthInMeters property should equal 1.96
+		And the LengthInMeters property should equal '1.96'
 
 Scenario: But the first word is always left untouched since it might be abbreviations
 	When I create a dynamic instance from this table

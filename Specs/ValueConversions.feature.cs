@@ -85,6 +85,106 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Integers should be translated from strings")]
+        public virtual void IntegersShouldBeTranslatedFromStrings()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Integers should be translated from strings", ((string[])(null)));
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Age"});
+            table2.AddRow(new string[] {
+                        "39"});
+#line 14
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table2);
+#line 17
+ testRunner.Then("the Age property should equal 39");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Doubles should be translated from strings")]
+        public virtual void DoublesShouldBeTranslatedFromStrings()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Doubles should be translated from strings", ((string[])(null)));
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Length in meters"});
+            table3.AddRow(new string[] {
+                        "1.96"});
+#line 20
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table3);
+#line 23
+ testRunner.Then("the LengthInMeters property should equal \'1.96\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Dates should be translated from strings")]
+        public virtual void DatesShouldBeTranslatedFromStrings()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dates should be translated from strings", ((string[])(null)));
+#line 25
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Birth date"});
+            table4.AddRow(new string[] {
+                        "1972-10-09"});
+#line 26
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table4);
+#line 29
+ testRunner.Then("the BirthDate property should equal 1972-10-09");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Bools should be translated from strings")]
+        public virtual void BoolsShouldBeTranslatedFromStrings()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bools should be translated from strings", ((string[])(null)));
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Is developer"});
+            table5.AddRow(new string[] {
+                        "false"});
+#line 32
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table5);
+#line 35
+ testRunner.Then("the IsDeveloper property should equal \'false\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("A strange double should not be translated into a date")]
+        public virtual void AStrangeDoubleShouldNotBeTranslatedIntoADate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A strange double should not be translated into a date", ((string[])(null)));
+#line 37
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Length in meters"});
+            table6.AddRow(new string[] {
+                        "4.567"});
+#line 38
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table6);
+#line 41
+ testRunner.Then("the LengthInMeters property should equal \'4.567\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -41,10 +41,9 @@ namespace Specs.Steps
             ((DateTime)State.OriginalInstance.BirthDate).Should().Equal(DateTime.Parse(expectedDate));
         }
 
-        [Then(@"the LengthInMeters property should equal (.*)")]
-        public void LengthInMeterShouldBe(string doubleString)
+        [Then(@"the LengthInMeters property should equal '(\d+\.\d+)'")]
+        public void LengthInMeterShouldBe(double expectedDouble)
         {
-            var expectedDouble = double.Parse(doubleString);
             ((double)State.OriginalInstance.LengthInMeters).Should().Equal(expectedDouble);
         }
 
