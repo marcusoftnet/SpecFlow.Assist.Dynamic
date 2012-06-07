@@ -96,6 +96,11 @@
     <Compile Include="Steps\DynamicInstanceCreationSteps.cs" />
     <Compile Include="Steps\DynamicSetCreationSteps.cs" />
     <Compile Include="Steps\State.cs" />
+    <Compile Include="ValueConversions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValueConversions.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -124,6 +129,10 @@
       <LastGenOutput>DynamicSetFromTable.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="ValueConversions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ValueConversions.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecFlow.Assist.Dynamic\SpecFlow.Assist.Dynamic.csproj">
