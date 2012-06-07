@@ -227,10 +227,6 @@ namespace TechTalk.SpecFlow.Assist
         private static object CreateTypedValue(string valueFromTable)
         {
             // TODO: More types here?
-            DateTime dt;
-            if (DateTime.TryParse(valueFromTable, out dt))
-                return dt;
-
             int i;
             if (int.TryParse(valueFromTable, out i))
                 return i;
@@ -242,6 +238,10 @@ namespace TechTalk.SpecFlow.Assist
             bool b;
             if (Boolean.TryParse(valueFromTable, out b))
                 return b;
+
+            DateTime dt;
+            if (DateTime.TryParse(valueFromTable, out dt))
+                return dt;
 
             return valueFromTable;
         }
