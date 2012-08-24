@@ -54,4 +54,4 @@ Or this:
     
 The later version uses SpecFlow.Assist.Dynamic. Shorter, sweater and more fun!
 
-See documentation: https://github.com/marcushammarberg/SpecFlow.Assist.Dynamic/wiki/Documentation
+See documentation: https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Documentation
