@@ -41,10 +41,24 @@ namespace Specs.Steps
             ((DateTime)State.OriginalInstance.BirthDate).Should().Equal(DateTime.Parse(expectedDate));
         }
 
-        [Then(@"the LengthInMeters property should equal '(\d+\.\d+)'")]
-        public void LengthInMeterShouldBe(double expectedDouble)
+
+        [Then]
+        public void ThenTheLengthInMetersPropertyShouldEqual_P0(double expectedLenghtInMeters)
         {
-            ((double)State.OriginalInstance.LengthInMeters).Should().Equal(expectedDouble);
+            CheckLengthInMeters(expectedLenghtInMeters);
+
+        }
+
+        
+        [Then(@"the LengthInMeters property should equal '(\d+\.\d+)'")]
+        public void LengthInMeterShouldBe(double expectedLenghtInMeters)
+        {
+            CheckLengthInMeters(expectedLenghtInMeters);
+        }
+
+        private static void CheckLengthInMeters(double expectedLenghtInMeters)
+        {
+            ((double) State.OriginalInstance.LengthInMeters).Should().Equal(expectedLenghtInMeters);
         }
 
         [Then(@"the SATScore should be (\d+)")]
