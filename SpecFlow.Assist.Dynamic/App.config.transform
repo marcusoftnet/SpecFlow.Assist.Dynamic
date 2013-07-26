@@ -7,7 +7,7 @@
     
     <stepAssemblies>
       <!-- This attribute is required in order to use StepArgument Transformation as described here; 
-    https://github.com/marcushammarberg/SpecFlow.Assist.Dynamic/wiki/Step-argument-transformations  -->
+    https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Step-argument-transformations  -->
       <stepAssembly assembly="SpecFlow.Assist.Dynamic" />
     </stepAssemblies>
   </specFlow>
