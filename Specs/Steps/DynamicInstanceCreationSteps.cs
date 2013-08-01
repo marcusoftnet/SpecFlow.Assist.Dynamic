@@ -56,9 +56,23 @@ namespace Specs.Steps
             CheckLengthInMeters(expectedLenghtInMeters);
         }
 
+
+        [Then(@"the MolecularWeight property should equal '(\d+\.\d+)'")]
+        public void MolecularWeightShouldBe(decimal expectedMolecularWeight)
+        {
+            CheckMolecularWeight(expectedMolecularWeight);
+        }
+
+
         private static void CheckLengthInMeters(double expectedLenghtInMeters)
         {
             ((double) State.OriginalInstance.LengthInMeters).Should().Equal(expectedLenghtInMeters);
+        }
+
+
+        private static void CheckMolecularWeight(decimal expectedMolecularWeight)
+        {
+            ((decimal)State.OriginalInstance.MolecularWeight).Should().Equal(expectedMolecularWeight);
         }
 
         [Then(@"the SATScore should be (\d+)")]
