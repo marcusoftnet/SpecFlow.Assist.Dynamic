@@ -22,6 +22,12 @@ Scenario: Doubles should be translated from strings
 		| 1.96             | 
 	Then the LengthInMeters property should equal '1.96'
 
+Scenario: Decimals should be translated from strings
+	When I create a dynamic instance from this table
+		| Molecular Weight      |
+		| 1000000000.1111991111 |
+	Then the MolecularWeight property should equal '1000000000.1111991111'
+
 Scenario: Dates should be translated from strings
 	When I create a dynamic instance from this table
 		| Birth date |

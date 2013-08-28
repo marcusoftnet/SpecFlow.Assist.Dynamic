@@ -231,9 +231,16 @@ namespace TechTalk.SpecFlow.Assist
             if (int.TryParse(valueFromTable, out i))
                 return i;
 
-            double d;
-            if (Double.TryParse(valueFromTable, out d))
+            double db;
+            if (Double.TryParse(valueFromTable, out db))
+            {
+                decimal d;
+                if (Decimal.TryParse(valueFromTable, out d) && d.Equals((decimal)db))
+                {
+                    return db;
+                }
                 return d;
+            }
 
             bool b;
             if (Boolean.TryParse(valueFromTable, out b))
