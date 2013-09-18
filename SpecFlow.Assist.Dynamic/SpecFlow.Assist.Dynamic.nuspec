@@ -22,6 +22,6 @@ I have not supplied that with the package because that would be intrusive to peo
   </metadata>
   <files>
     <file src="App.config.transform" target="content\App.config.transform" />
-    <file src="bin\Release\*.dll" target="lib\40" />
+    <file src="bin\Release\SpecFlow.Assist.Dynamic.dll" target="lib\40" />
   </files>
 </package>
