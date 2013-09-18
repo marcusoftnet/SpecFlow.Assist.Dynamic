@@ -14,3 +14,4 @@ binaries
 TestResults
 *_mm_cache.bin
 *.nupkg
+packages

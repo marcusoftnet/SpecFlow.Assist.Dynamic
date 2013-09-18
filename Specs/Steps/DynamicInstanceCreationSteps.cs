@@ -64,6 +64,7 @@ namespace Specs.Steps
         }
 
 
+
         private static void CheckLengthInMeters(double expectedLenghtInMeters)
         {
             ((double) State.OriginalInstance.LengthInMeters).Should().Equal(expectedLenghtInMeters);
