@@ -21,7 +21,6 @@ public class StepsUsingStaticType
     {
         Assert.AreEqual(expectedValue, _person.Name);
     }
-
 }
 ```
 And then not forget to define a separate Person class for testing, since you don't want to reuse the one your system under test is using - that's bad practice.
