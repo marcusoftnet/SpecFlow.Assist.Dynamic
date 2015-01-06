@@ -23,7 +23,7 @@ public class StepsUsingStaticType
     }
 }
 ```
-And then not forget to define a separate Person class for testing, since you don't want to reuse the one your system under test is using - that's bad practice.
+And then make sure to not forget defining a separate Person class for testing, since you don't want to reuse the one your system under test is using - that's bad practice.
 
 ```c#
 public class Person
