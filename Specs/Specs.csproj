@@ -84,6 +84,11 @@
       <DependentUpon>DynamicSetFromTable.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservedCharsInCSharp.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservedCharsInCSharp.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\StepArgumentTransformationSteps.cs" />
     <Compile Include="Steps\DynamicSetComparisonSteps.cs" />
     <Compile Include="Steps\DynamicInstanceComparisionSteps.cs" />
@@ -123,6 +128,10 @@
       <LastGenOutput>DynamicSetFromTable.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="ReservedCharsInCSharp.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReservedCharsInCSharp.feature.cs</LastGenOutput>
+    </None>
     <None Include="ValueConversions.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ValueConversions.feature.cs</LastGenOutput>

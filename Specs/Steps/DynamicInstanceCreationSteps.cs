@@ -88,5 +88,47 @@ namespace Specs.Steps
             ((bool) State.OriginalInstance.IsDeveloper).Should().Equal(expectedValue);
         }
 
+        [Then(@"the CharpNmeWithStrangeChars property should equal '(.*)'")]
+        public void ThenTheCharpNmeWithStrangeCharsPropertyShouldEqual(string expectedValue)
+        {
+            ((string)State.OriginalInstance.CharpNmeWithStrangeChars).Should().Equal(expectedValue);
+
+        }
+
+        [Then(@"the My_Nice_Variable property should equal '(.*)'")]
+        public void ThenTheMy_Nice_VariablePropertyShouldEqual(string expectedValue)
+        {
+            ((string)State.OriginalInstance.My_Nice_Variable).Should().Equal(expectedValue);
+
+        }
+
+        [Then(@"the MyVariableNeedsCleanUp property should equal '(.*)'")]
+        public void ThenTheMyVariableNeedsCleanUpPropertyShouldEqual(string expectedValue)
+        {
+            ((string)State.OriginalInstance.MyVariableNeedsCleanUp).Should().Equal(expectedValue);
+        }
+
+        [When(@"I create a dynamic instance with only reserved chars")]
+        public void OnlyReservedChars(Table table)
+        {
+            try
+            {
+                State.OriginalInstance = table.CreateDynamicInstance();                 
+            }
+            catch (DynamicInstanceFromTableException ex)
+            {
+                ScenarioContext.Current.Set(ex);
+            }
+        }
+
+        [Then(@"an exception with a nice error message about the property only containing reserved chars should be thrown")]
+        public void ThenAnExceptionWithANiceErrorMessageAboutThePropertyOnlyContainingReservedCharsShouldBeThrown()
+        {
+            var ex = ScenarioContext.Current.Get<DynamicInstanceFromTableException>();
+            ex.Should().Not.Be.Null();
+            ex.Message.Should().Contain("only contains");
+        }
+
+
     }
 }

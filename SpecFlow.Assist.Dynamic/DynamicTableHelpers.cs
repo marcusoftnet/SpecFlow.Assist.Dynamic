@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Text.RegularExpressions;
 using ImpromptuInterface;
 
 namespace TechTalk.SpecFlow.Assist
@@ -255,18 +257,39 @@ namespace TechTalk.SpecFlow.Assist
 
         private static string CreatePropertyName(string header)
         {
+            var cleanedHeader = RemoveReservedChars(header);
+            var propName = FixCasing(cleanedHeader);
+        
+            // Throw if no chars in string
+            if (propName.Length != 0) return propName;
+            
+            var mess = string.Format("Property '{0}' only contains reserved C# characters", header);
+            throw new DynamicInstanceFromTableException(mess);
+        }
+
+        private static string FixCasing(string header)
+        {
             var arr = header.Split(' ');
             var propName = arr[0]; // leave the first element as is, since it might be correct cased...
 
-            string s;
             for (var i = 1; i < arr.Length; i++)
             {
-                s = arr[i];
-                propName += s[0].ToString().ToUpperInvariant() +
+                var s = arr[i];
+                if (s.Length > 0)
+                {
+                    propName += s[0].ToString().ToUpperInvariant() +
                             s.Substring(1).ToLowerInvariant();
+                }
             }
 
             return propName;
+        }
+
+        private static string RemoveReservedChars(string orgPropertyName)
+        {
+            const string pattern = @"[^\w\s]";
+            const string replacement = "";
+            return Regex.Replace(orgPropertyName, pattern, replacement);
         }
     }
 }
