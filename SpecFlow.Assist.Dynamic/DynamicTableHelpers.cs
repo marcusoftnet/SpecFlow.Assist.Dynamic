@@ -261,7 +261,7 @@ namespace TechTalk.SpecFlow.Assist
             var cleanedHeader = RemoveReservedChars(header);
             var propName = FixCasing(cleanedHeader);
 
-            Console.WriteLine("\t-column '{0}' converted to property '{1}'", header, propName);
+            Console.WriteLine("\t- column '{0}' converted to property '{1}'", header, propName);
         
             // Throw if no chars in string
             if (propName.Length != 0) return propName;
