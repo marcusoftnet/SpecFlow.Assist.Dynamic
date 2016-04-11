@@ -1,12 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Assist.Dynamic", "SpecFlow.Assist.Dynamic\SpecFlow.Assist.Dynamic.csproj", "{58573850-CD94-4163-BABA-5CF41E58895F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specs", "Specs\Specs.csproj", "{A010C81C-7CF8-4027-AB2A-094ADD0D1B3A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D5EC37E6-4DF1-4D4B-84FF-4FDAA8DBC72B}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		SolutionInfo.cs = SolutionInfo.cs
 	EndProjectSection
 EndProject
