@@ -44,7 +44,7 @@ public class StepsUsingDynamic
 {
     private dynamic _instance;
 
-    [Given(@"I create a dynamic instance from this table using step argument transformation")]
+    [Given(@"I create an instance from this table")]
     public void c(dynamic instance) { _instance = instance; }
 
     [Then(@"the Name property should equal '(.*)'")]
