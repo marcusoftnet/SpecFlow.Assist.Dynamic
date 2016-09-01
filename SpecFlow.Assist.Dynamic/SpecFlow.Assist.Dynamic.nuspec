@@ -6,22 +6,18 @@
     <owners>www.marcusoft.net - Marcus Hammarberg</owners>
     <dependencies>
       <dependency id="ImpromptuInterface" version="6.2.2" />
-      <dependency id="SpecFlow" version="1.9.0" />
+      <dependency id="SpecFlow" version="2.1.0" />
     </dependencies>
     <id>SpecFlow.Assist.Dynamic</id>
     <title>SpecFlow.Assist.Dynamic</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Adds support for dynamic instances and set from SpecFlow tables</description>
-	<summary>You might have to install a test framework (NUnit, xUnit etc) in order to execute your .features. 
-If this happens you'll see an error message, when you save your SpecFlow .feature files, that says something like: "The type or namespace name 'NUnit' could not be found (are you missing a using directive or an assembly reference?)"	
-Install the NUnit package to resolve this problem. NUnit is the default test framework of SpecFlow. 
-
-I have not supplied that with the package because that would be intrusive to people that already have a test framework.</summary>
-    <copyright>Copyright © Marcus Hammarberg  2012</copyright>
+	  <summary>See documentation at https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Documentation</summary>
+    <copyright>Copyright © Marcus Hammarberg  2016</copyright>
     <projectUrl>http://marcusoftnet.github.com/SpecFlow.Assist.Dynamic/</projectUrl>
   </metadata>
   <files>
     <file src="App.config.transform" target="content\App.config.transform" />
-    <file src="bin\Release\SpecFlow.Assist.Dynamic.dll" target="lib\40" />
+    <file src="bin\Release\SpecFlow.Assist.Dynamic.dll" target="lib\45" />
   </files>
 </package>
