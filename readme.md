@@ -22,10 +22,12 @@ public class StepsUsingStaticType
         Assert.AreEqual(expectedValue, _person.Name);
     }
 }
-```
-And then make sure to not forget defining a separate Person class for testing, since you don't want to reuse the one your system under test is using - that's bad practice.
 
-```c#
+// And then make sure to not forget defining a separate Person class for testing, 
+// since you don't want to reuse the one your system under test is using - that's bad practice
+
+// Should probably be in another file too...
+// might need unit tests if the logic is complicated
 public class Person
 {
     public string Name { get; set; }
@@ -42,14 +44,11 @@ public class StepsUsingDynamic
 {
     private dynamic _instance;
 
-    [Given(@"I create a dynamic instance from this table using step argument transformation")]
+    [Given(@"I create an instance from this table")]
     public void c(dynamic instance) { _instance = instance; }
 
     [Then(@"the Name property should equal '(.*)'")]
-    public void NameShouldBe(string expectedValue)
-    {
-        Assert.AreEqual(expectedValue, _instance.Name);
-    }
+    public void NameShouldBe(string expectedValue) { Assert.AreEqual(expectedValue, _instance.Name);  }
 }
 ```
 The later version uses SpecFlow.Assist.Dynamic. Shorter, sweater and more fun!
