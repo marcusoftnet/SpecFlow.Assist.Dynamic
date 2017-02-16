@@ -3,10 +3,10 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyCompany("www.marcusoft.net - Marcus Hammarberg")]
 [assembly: AssemblyProduct("SpecFlow.Assist.Dynamic")]
-[assembly: AssemblyCopyright("Copyright ©  Marcus Hammarberg")]
+[assembly: AssemblyCopyright("Copyright © Marcus Hammarberg")]
 [assembly: AssemblyTrademark("www.marcusoft.net - Marcus Hammarberg")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
-[assembly: AssemblyVersion("1.2.0")]
-[assembly: AssemblyFileVersion("1.2.0")]
+[assembly: AssemblyVersion("1.3.0")]
+[assembly: AssemblyFileVersion("1.3.0")]
