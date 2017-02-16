@@ -129,6 +129,36 @@ namespace Specs.Steps
             ex.Message.Should().Contain("only contains");
         }
 
+        [When(@"I create a dynamic instance from this table using no type conversion")]
+        public void WhenICreateADynamicInstanceFromThisTableUsingNoTypeConversion(Table table)
+        {
+            State.OriginalInstance = table.CreateDynamicInstance(false);
+        }
+
+        [Then(@"the Name value should still be '(.*)'")]
+        public void ThenTheNameValueShouldStillBe(string expectedValue)
+        {
+            ((string)State.OriginalInstance.Name).Should().Equal(expectedValue);
+        }
+
+        [Then(@"the Age value should still be '(.*)'")]
+        public void ThenTheAgeValueShouldStillBe(string expectedValue)
+        {
+            ((string)State.OriginalInstance.Age).Should().Equal(expectedValue);
+        }
+
+        [Then(@"the birth date should stil be '(.*)'")]
+        public void ThenTheBirthDateShouldStilBe(string expectedValue)
+        {
+            ((string)State.OriginalInstance.BirthDate).Should().Equal(expectedValue);
+
+        }
+
+        [Then(@"length in meter should still be '(.*)'")]
+        public void ThenLengthInMeterShouldStillBe(string expectedValue)
+        {
+            ((string)State.OriginalInstance.LengthInMeters).Should().Equal(expectedValue);
+        }
 
     }
 }

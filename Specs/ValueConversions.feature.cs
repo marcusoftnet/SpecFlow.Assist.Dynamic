@@ -204,6 +204,67 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("There\'s ways to disable type conversion for instance creation")]
+        public virtual void ThereSWaysToDisableTypeConversionForInstanceCreation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There\'s ways to disable type conversion for instance creation", ((string[])(null)));
+#line 49
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table8.AddRow(new string[] {
+                        "012345",
+                        "044",
+                        "1972-13-09",
+                        "1,96"});
+#line 50
+ testRunner.When("I create a dynamic instance from this table using no type conversion", ((string)(null)), table8, "When ");
+#line 53
+ testRunner.Then("the Name value should still be \'012345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
+ testRunner.And("the Age value should still be \'044\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.And("the birth date should stil be \'1972-13-09\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+ testRunner.And("length in meter should still be \'1,96\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("There\'s ways to disable type conversion for set creation")]
+        public virtual void ThereSWaysToDisableTypeConversionForSetCreation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There\'s ways to disable type conversion for set creation", ((string[])(null)));
+#line 58
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table9.AddRow(new string[] {
+                        "012345",
+                        "044"});
+            table9.AddRow(new string[] {
+                        "Arvid",
+                        "1"});
+#line 59
+ testRunner.When("I create a set of dynamic instances from this table using no type conversion", ((string)(null)), table9, "When ");
+#line 63
+ testRunner.Then("I should have a list of 2 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 64
+  testRunner.And("the 1 item should still Name equal \'012345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+  testRunner.And("the 1 item should still Age equal \'044\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

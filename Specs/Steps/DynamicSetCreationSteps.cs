@@ -43,6 +43,19 @@ namespace Specs.Steps
             Assert.AreEqual(expectedAge, GetItem(itemNumber).Age);
         }
 
+        [Then(@"the (.*) item should still Name equal '(.*)'")]
+        public void ThenTheItemShouldStillNameEqual(int itemNumber, string expectedName)
+        {
+            Assert.AreEqual(expectedName, GetItem(itemNumber).Name);
+        }
+
+        [Then(@"the (.*) item should still Age equal '(.*)'")]
+        public void ThenTheItemShouldStillAgeEqual(int itemNumber, string expectedAge)
+        {
+            Assert.AreEqual(expectedAge, GetItem(itemNumber).Age);
+        }
+
+
         [Then(@"the (\d+) item should have Name equal to '(.*)'")]
         public void ItemInSetShouldHaveExpectedName(int itemNumber, string expectedName)
         {
@@ -54,5 +67,12 @@ namespace Specs.Steps
         {
             Assert.AreEqual(expectedLengthInMetersItem, GetItem(itemNumber).LengthInMeters);
         }
+
+        [When(@"I create a set of dynamic instances from this table using no type conversion")]
+        public void WhenICreateASetOfDynamicInstancesFromThisTableUsingNoTypeConversion(Table table)
+        {
+           State.OriginalSet = table.CreateDynamicSet(false).ToList();
+        }
+
     }
 }

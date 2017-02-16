@@ -28,8 +28,9 @@ namespace TechTalk.SpecFlow.Assist
         /// Create a dynamic object from the headers and values of the <paramref name="table"/>
         /// </summary>
         /// <param name="table">the table to create a dynamic object from</param>
+        /// <param name="doTypeConversion">should types be converted according to conventions described in https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Conversion-conventions#property-type-conversions</param>
         /// <returns>the created object</returns>
-        public static ExpandoObject CreateDynamicInstance(this Table table)
+        public static ExpandoObject CreateDynamicInstance(this Table table, bool doTypeConversion = true)
         {
             if (table.Header.Count == 2 && table.RowCount > 1)
             {
@@ -39,20 +40,23 @@ namespace TechTalk.SpecFlow.Assist
 
             if (table.RowCount == 1)
             {
-                return CreateDynamicInstance(table.Rows[0]);
+                return CreateDynamicInstance(table.Rows[0], doTypeConversion);
             }
 
             throw new DynamicInstanceFromTableException(ERRORMESS_INSTANCETABLE_FORMAT);
         }
+        
 
         /// <summary>
         /// Creates a set of dynamic objects based of the <paramref name="table"/> headers and values
         /// </summary>
         /// <param name="table">the table to create a set of dynamics from</param>
+        /// <param name="doTypeConversion">should types be converted according to conventions described in https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Conversion-conventions#property-type-conversions</param>
         /// <returns>a set of dynamics</returns>
-        public static IEnumerable<dynamic> CreateDynamicSet(this Table table)
+        public static IEnumerable<dynamic> CreateDynamicSet(this Table table, bool doTypeConversion = true)
         {
-            return table.Rows.Select(CreateDynamicInstance);
+            return from r in table.Rows
+                   select CreateDynamicInstance(r, doTypeConversion);
         }
 
         /// <summary>
@@ -212,7 +216,7 @@ namespace TechTalk.SpecFlow.Assist
             return horizontalTable;
         }
 
-        private static ExpandoObject CreateDynamicInstance(TableRow tablerow)
+        private static ExpandoObject CreateDynamicInstance(TableRow tablerow, bool doTypeConversion = true)
         {
             dynamic expando = new ExpandoObject();
             var dicExpando = expando as IDictionary<string, object>;
@@ -220,16 +224,18 @@ namespace TechTalk.SpecFlow.Assist
             foreach (var header in tablerow.Keys)
             {
                 var propName = CreatePropertyName(header);
-                var propValue = CreateTypedValue(tablerow[header]);
+                var propValue = CreateTypedValue(tablerow[header], doTypeConversion);
                 dicExpando.Add(propName, propValue);
             }
 
             return expando;
         }
 
-        private static object CreateTypedValue(string valueFromTable)
+        private static object CreateTypedValue(string valueFromTable, bool doTypeConversion = true)
         {
-            // TODO: More types here?
+            if (!doTypeConversion)
+                return valueFromTable;
+
             int i;
             if (int.TryParse(valueFromTable, out i))
                 return i;

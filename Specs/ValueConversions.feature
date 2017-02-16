@@ -45,3 +45,22 @@ Scenario: A strange double should not be translated into a date
 		| Length in meters |
 		| 4.567            |  
 	Then the LengthInMeters property should equal '4.567'
+
+Scenario: There's ways to disable type conversion for instance creation
+	When I create a dynamic instance from this table using no type conversion
+		| Name   | Age | Birth date | Length in meters |
+		| 012345 | 044 | 1972-13-09 | 1,96             | 
+	Then the Name value should still be '012345'
+	And the Age value should still be '044'
+	And the birth date should stil be '1972-13-09'
+	And length in meter should still be '1,96'
+
+Scenario: There's ways to disable type conversion for set creation
+	When I create a set of dynamic instances from this table using no type conversion
+		| Name   | Age | 
+		| 012345 | 044 | 
+		| Arvid  | 1   | 
+	Then I should have a list of 2 dynamic objects
+		And the 1 item should still Name equal '012345'
+		And the 1 item should still Age equal '044'
+
