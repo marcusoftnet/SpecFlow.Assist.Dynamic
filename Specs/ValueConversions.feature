@@ -73,3 +73,13 @@ Scenario: There's ways to disable type conversion for matching a dynamic instanc
 		| 012345 | 039 | 
 	Then no instance comparison exception should have been thrown
 
+Scenario: Comparing against an identical table should match
+	Given I create a set of dynamic instances from this table using no type conversion
+		| Name   | Age | 
+		| 012345 | 039 | 
+		| 065484 | 003 | 
+	When I compare the set to this table using no type conversion
+		| Name   | Age | 
+		| 012345 | 039 | 
+		| 065484 | 003 | 
+	Then no set comparison exception should have been thrown

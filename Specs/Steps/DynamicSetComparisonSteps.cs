@@ -33,6 +33,19 @@ namespace Specs.Steps
             }
         }
 
+        [When(@"I compare the set to this table using no type conversion")]
+        public void CompareSetToInstanceNoConversion(Table table)
+        {
+            try
+            {
+                table.CompareToDynamicSet(State.OriginalSet, false);
+            }
+            catch (DynamicSetComparisonException ex)
+            {
+                ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
+            }
+        }
+
         [Then(@"no set comparison exception should have been thrown")]
         public void NoSetExceptionThrown()
         {

@@ -298,6 +298,43 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Comparing against an identical table should match")]
+        public virtual void ComparingAgainstAnIdenticalTableShouldMatch()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Comparing against an identical table should match", ((string[])(null)));
+#line 76
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table12.AddRow(new string[] {
+                        "012345",
+                        "039"});
+            table12.AddRow(new string[] {
+                        "065484",
+                        "003"});
+#line 77
+ testRunner.Given("I create a set of dynamic instances from this table using no type conversion", ((string)(null)), table12, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table13.AddRow(new string[] {
+                        "012345",
+                        "039"});
+            table13.AddRow(new string[] {
+                        "065484",
+                        "003"});
+#line 81
+ testRunner.When("I compare the set to this table using no type conversion", ((string)(null)), table13, "When ");
+#line 85
+ testRunner.Then("no set comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -23,7 +23,13 @@ namespace Specs.Steps
         {
             State.OriginalSet = table.CreateDynamicSet().ToList();   
         }
-        
+
+        [Given(@"I create a set of dynamic instances from this table using no type conversion")]
+        public void WithMethodBIndingNoTypeConversion(Table table)
+        {
+            State.OriginalSet = table.CreateDynamicSet(false).ToList();
+        }
+
 
         [Then(@"I should have a list of (\d+) dynamic objects")]
         public void ShouldContain(int expectedNumberOfItems)
