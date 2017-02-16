@@ -129,6 +129,7 @@ namespace Specs.Steps
             ex.Message.Should().Contain("only contains");
         }
 
+        [Given(@"I create a dynamic instance from this table using no type conversion")]
         [When(@"I create a dynamic instance from this table using no type conversion")]
         public void WhenICreateADynamicInstanceFromThisTableUsingNoTypeConversion(Table table)
         {

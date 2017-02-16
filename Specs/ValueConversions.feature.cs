@@ -265,6 +265,39 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("There\'s ways to disable type conversion for matching a dynamic instance against a" +
+            " table")]
+        public virtual void ThereSWaysToDisableTypeConversionForMatchingADynamicInstanceAgainstATable()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There\'s ways to disable type conversion for matching a dynamic instance against a" +
+                    " table", ((string[])(null)));
+#line 67
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table10.AddRow(new string[] {
+                        "012345",
+                        "039"});
+#line 68
+ testRunner.Given("I create a dynamic instance from this table using no type conversion", ((string)(null)), table10, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table11.AddRow(new string[] {
+                        "012345",
+                        "039"});
+#line 71
+ testRunner.When("I compare it to this table using no type conversion", ((string)(null)), table11, "When ");
+#line 74
+ testRunner.Then("no instance comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

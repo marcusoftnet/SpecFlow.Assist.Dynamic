@@ -84,5 +84,19 @@ namespace Specs.Steps
         {
             CheckForOneDifferenceContaingString(expectedPropertyName);
         }
+
+        [When(@"I compare it to this table using no type conversion")]
+        public void WhenICompareItToThisTableUsingNoTypeConversion(Table table)
+        {
+            try
+            {
+                table.CompareToDynamicInstance((object)State.OriginalInstance, false);
+            }
+            catch (DynamicInstanceComparisonException ex)
+            {
+                ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
+            }
+        }
+
     }
 }

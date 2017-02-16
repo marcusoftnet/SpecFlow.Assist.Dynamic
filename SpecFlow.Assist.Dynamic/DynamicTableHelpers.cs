@@ -65,13 +65,14 @@ namespace TechTalk.SpecFlow.Assist
         /// </summary>
         /// <param name="table">the table to compare the instance against</param>
         /// <param name="instance">the instance to compare the table against</param>
-        public static void CompareToDynamicInstance(this Table table, dynamic instance)
+        /// <param name="doTypeConversion">should types be converted according to conventions described in https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Conversion-conventions#property-type-conversions</param>
+        public static void CompareToDynamicInstance(this Table table, dynamic instance, bool doTypeConversion = true)
         {
             IList<string> propDiffs = GetPropertyDifferences(table, instance);
             if (propDiffs.Any())
                 throw new DynamicInstanceComparisonException(propDiffs);
 
-            AssertValuesOfRowDifference(table.Rows[0], instance);
+            AssertValuesOfRowDifference(table.Rows[0], instance, doTypeConversion);
         }
 
         /// <summary>
@@ -80,7 +81,8 @@ namespace TechTalk.SpecFlow.Assist
         /// </summary>
         /// <param name="table">the table to compare the set against</param>
         /// <param name="set">the set to compare the table against</param>
-        public static void CompareToDynamicSet(this Table table, IList<dynamic> set)
+        /// <param name="doTypeConversion">should types be converted according to conventions described in https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Conversion-conventions#property-type-conversions</param>
+        public static void CompareToDynamicSet(this Table table, IList<dynamic> set, bool doTypeConversion = true)
         {
             AssertEqualNumberOfRows(table, set);
 
@@ -92,7 +94,7 @@ namespace TechTalk.SpecFlow.Assist
 
             // Now we know that the table and the list has the same number of rows and properties
 
-            var valueDifference = GetSetValueDifferences(table, set);
+            var valueDifference = GetSetValueDifferences(table, set, doTypeConversion);
 
             if (valueDifference.Any())
             {
@@ -100,7 +102,7 @@ namespace TechTalk.SpecFlow.Assist
             }
         }
 
-        private static List<string> GetSetValueDifferences(Table table, IList<object> set)
+        private static List<string> GetSetValueDifferences(Table table, IList<object> set, bool doTypeConversion = true)
         {
             var memberNames = Impromptu.GetMemberNames(set[0]);
             var valueDifference = new List<string>();
@@ -110,7 +112,7 @@ namespace TechTalk.SpecFlow.Assist
                 foreach (var memberName in memberNames)
                 {
                     var currentHeader = string.Empty;
-                    var rowValue = GetRowValue(i, table, memberName, out currentHeader);
+                    var rowValue = GetRowValue(i, table, memberName, out currentHeader, doTypeConversion);
                     var instanceValue = Impromptu.InvokeGet(set[i], memberName);
 
                     if (!instanceValue.Equals(rowValue))
@@ -129,7 +131,7 @@ namespace TechTalk.SpecFlow.Assist
             return valueDifference;
         }
 
-        private static object GetRowValue(int rowIndex, Table table, string memberName, out string currentHeader)
+        private static object GetRowValue(int rowIndex, Table table, string memberName, out string currentHeader, bool doTypeConversion = true)
         {
             object rowValue = null;
             currentHeader = string.Empty;
@@ -138,21 +140,21 @@ namespace TechTalk.SpecFlow.Assist
                 if (CreatePropertyName(header) == memberName)
                 {
                     currentHeader = header;
-                    rowValue = CreateTypedValue(table.Rows[rowIndex][header]);
+                    rowValue = CreateTypedValue(table.Rows[rowIndex][header], doTypeConversion);
                     break;
                 }
             }
             return rowValue;
         }
 
-        private static void AssertValuesOfRowDifference(TableRow tableRow, dynamic instance)
+        private static void AssertValuesOfRowDifference(TableRow tableRow, dynamic instance, bool doTypeConversion = true)
         {
-            IList<string> valueDiffs = ValidateValuesOfRow(tableRow, instance);
+            IList<string> valueDiffs = ValidateValuesOfRow(tableRow, instance, doTypeConversion);
             if (valueDiffs.Any())
                 throw new DynamicInstanceComparisonException(valueDiffs);
         }
 
-        private static IList<string> GetPropertyDifferences(Table table, dynamic instance)
+        private static IList<string> GetPropertyDifferences(Table table, dynamic instance, bool doTypeConversion = true)
         {
             var tableHeadersAsPropertyNames = table.Header.Select(CreatePropertyName);
             IEnumerable<string> instanceMembers = Impromptu.GetMemberNames(instance);
@@ -169,7 +171,7 @@ namespace TechTalk.SpecFlow.Assist
             }
         }
 
-        private static IList<string> ValidateValuesOfRow(TableRow tableRow, dynamic instance)
+        private static IList<string> ValidateValuesOfRow(TableRow tableRow, dynamic instance, bool doTypeConversion = true)
         {
             var valueDiffs = new List<string>();
 
@@ -177,7 +179,7 @@ namespace TechTalk.SpecFlow.Assist
             {
                 var propertyName = CreatePropertyName(header);
                 var valueFromInstance = Impromptu.InvokeGet(instance, propertyName);
-                var valueFromTable = CreateTypedValue(tableRow[header]);
+                var valueFromTable = CreateTypedValue(tableRow[header], doTypeConversion);
 
                 if (!valueFromInstance.Equals(valueFromTable))
                 {

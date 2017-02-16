@@ -64,3 +64,12 @@ Scenario: There's ways to disable type conversion for set creation
 		And the 1 item should still Name equal '012345'
 		And the 1 item should still Age equal '044'
 
+Scenario: There's ways to disable type conversion for matching a dynamic instance against a table
+	Given I create a dynamic instance from this table using no type conversion
+		| Name   | Age  | 
+		| 012345 | 039  | 
+	When I compare it to this table using no type conversion
+		| Name   | Age | 
+		| 012345 | 039 | 
+	Then no instance comparison exception should have been thrown
+
