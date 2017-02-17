@@ -55,6 +55,18 @@ Scenario: There's ways to disable type conversion for instance creation
 	And the birth date should stil be '1972-13-09'
 	And length in meter should still be '1,96'
 
+Scenario: There's ways to disable type conversion for instance creation with key/value tables
+	When I create a dynamic instance from this table using no type conversion
+		| Key              | Value | 
+		| Name             | 012345 | 
+		| Age              | 044 | 
+		| Birth date       | 1972-13-09 | 
+		| Length in meters | 1,96 | 
+	Then the Name value should still be '012345'
+	And the Age value should still be '044'
+	And the birth date should stil be '1972-13-09'
+	And length in meter should still be '1,96'
+
 Scenario: There's ways to disable type conversion for set creation
 	When I create a set of dynamic instances from this table using no type conversion
 		| Name   | Age | 

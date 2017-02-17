@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text.RegularExpressions;
 using ImpromptuInterface;
 
@@ -35,7 +33,7 @@ namespace TechTalk.SpecFlow.Assist
             if (table.Header.Count == 2 && table.RowCount > 1)
             {
                 var horizontalTable = CreateHorizontalTable(table);
-                return CreateDynamicInstance(horizontalTable.Rows[0]);
+                return CreateDynamicInstance(horizontalTable.Rows[0], doTypeConversion);
             }
 
             if (table.RowCount == 1)

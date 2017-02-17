@@ -238,29 +238,68 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("There\'s ways to disable type conversion for set creation")]
-        public virtual void ThereSWaysToDisableTypeConversionForSetCreation()
+        [NUnit.Framework.DescriptionAttribute("There\'s ways to disable type conversion for instance creation with key/value tabl" +
+            "es")]
+        public virtual void ThereSWaysToDisableTypeConversionForInstanceCreationWithKeyValueTables()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There\'s ways to disable type conversion for set creation", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There\'s ways to disable type conversion for instance creation with key/value tabl" +
+                    "es", ((string[])(null)));
 #line 58
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age"});
+                        "Key",
+                        "Value"});
             table9.AddRow(new string[] {
-                        "012345",
+                        "Name",
+                        "012345"});
+            table9.AddRow(new string[] {
+                        "Age",
                         "044"});
             table9.AddRow(new string[] {
+                        "Birth date",
+                        "1972-13-09"});
+            table9.AddRow(new string[] {
+                        "Length in meters",
+                        "1,96"});
+#line 59
+ testRunner.When("I create a dynamic instance from this table using no type conversion", ((string)(null)), table9, "When ");
+#line 65
+ testRunner.Then("the Name value should still be \'012345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 66
+ testRunner.And("the Age value should still be \'044\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+ testRunner.And("the birth date should stil be \'1972-13-09\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+ testRunner.And("length in meter should still be \'1,96\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("There\'s ways to disable type conversion for set creation")]
+        public virtual void ThereSWaysToDisableTypeConversionForSetCreation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There\'s ways to disable type conversion for set creation", ((string[])(null)));
+#line 70
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table10.AddRow(new string[] {
+                        "012345",
+                        "044"});
+            table10.AddRow(new string[] {
                         "Arvid",
                         "1"});
-#line 59
- testRunner.When("I create a set of dynamic instances from this table using no type conversion", ((string)(null)), table9, "When ");
-#line 63
+#line 71
+ testRunner.When("I create a set of dynamic instances from this table using no type conversion", ((string)(null)), table10, "When ");
+#line 75
  testRunner.Then("I should have a list of 2 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 64
+#line 76
   testRunner.And("the 1 item should still Name equal \'012345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
+#line 77
   testRunner.And("the 1 item should still Age equal \'044\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -273,17 +312,8 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There\'s ways to disable type conversion for matching a dynamic instance against a" +
                     " table", ((string[])(null)));
-#line 67
+#line 79
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age"});
-            table10.AddRow(new string[] {
-                        "012345",
-                        "039"});
-#line 68
- testRunner.Given("I create a dynamic instance from this table using no type conversion", ((string)(null)), table10, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -291,9 +321,18 @@ this.ScenarioSetup(scenarioInfo);
             table11.AddRow(new string[] {
                         "012345",
                         "039"});
-#line 71
- testRunner.When("I compare it to this table using no type conversion", ((string)(null)), table11, "When ");
-#line 74
+#line 80
+ testRunner.Given("I create a dynamic instance from this table using no type conversion", ((string)(null)), table11, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table12.AddRow(new string[] {
+                        "012345",
+                        "039"});
+#line 83
+ testRunner.When("I compare it to this table using no type conversion", ((string)(null)), table12, "When ");
+#line 86
  testRunner.Then("no instance comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -304,20 +343,8 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ComparingAgainstAnIdenticalTableShouldMatch()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Comparing against an identical table should match", ((string[])(null)));
-#line 76
+#line 88
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Age"});
-            table12.AddRow(new string[] {
-                        "012345",
-                        "039"});
-            table12.AddRow(new string[] {
-                        "065484",
-                        "003"});
-#line 77
- testRunner.Given("I create a set of dynamic instances from this table using no type conversion", ((string)(null)), table12, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -328,9 +355,21 @@ this.ScenarioSetup(scenarioInfo);
             table13.AddRow(new string[] {
                         "065484",
                         "003"});
-#line 81
- testRunner.When("I compare the set to this table using no type conversion", ((string)(null)), table13, "When ");
-#line 85
+#line 89
+ testRunner.Given("I create a set of dynamic instances from this table using no type conversion", ((string)(null)), table13, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table14.AddRow(new string[] {
+                        "012345",
+                        "039"});
+            table14.AddRow(new string[] {
+                        "065484",
+                        "003"});
+#line 93
+ testRunner.When("I compare the set to this table using no type conversion", ((string)(null)), table14, "When ");
+#line 97
  testRunner.Then("no set comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
