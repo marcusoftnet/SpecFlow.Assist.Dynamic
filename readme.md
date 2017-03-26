@@ -53,4 +53,4 @@ public class StepsUsingDynamic
 ```
 The later version uses SpecFlow.Assist.Dynamic. Shorter, sweater and more fun!
 
-Full documentation at: https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Documentation
+Full [documentation on the wiki](https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Documentation)
