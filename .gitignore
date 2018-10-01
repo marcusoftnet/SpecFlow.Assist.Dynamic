@@ -16,3 +16,4 @@ TestResults
 *_mm_cache.bin
 *.nupkg
 packages
+.idea/*
