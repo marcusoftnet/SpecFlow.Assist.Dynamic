@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using ImpromptuInterface;
+using ImpromptuInterface.InvokeExt;
 
 namespace TechTalk.SpecFlow.Assist
 {
@@ -14,13 +15,13 @@ namespace TechTalk.SpecFlow.Assist
         private const string ERRORMESS_NOT_ON_TABLE = "The '{0}' value not present in the table, but on the instance";
         private const string ERRORMESS_NOT_ON_INSTANCE = "The '{0}' value not present on the instance, but in the table";
         private const string ERRORMESS_VALUE_DIFFERS =
-            "The '{0}' value differs from table and instance.\n\tInstance:\t'{1}'.\n\tTable:\t\t'{2}'";
+            "The '{0}' value differs from table and instance.\n\tInstance:\t'{1}'(type: {2}).\n\tTable:\t\t'{3}'(type: {4})";
 
         private const string ERRORMESS_NUMBER_OF_ROWS_DIFFERS =
             "Number of rows for table ({0} rows) and set ({1} rows) differs";
 
         private const string ERRORMESS_SET_VALUES_DIFFERS =
-            "A difference was found on row '{0}' for column '{1}' (property '{2}').\n\tInstance:\t'{3}'.\n\tTable:\t\t'{4}'";
+            "A difference was found on row '{0}' for column '{1}' (property '{2}').\n\tInstance:\t'{3}'(type: {4}).\n\tTable:\t\t'{5}'(type: {6})";
 
         /// <summary>
         /// Create a dynamic object from the headers and values of the <paramref name="table"/>
@@ -109,21 +110,25 @@ namespace TechTalk.SpecFlow.Assist
             {
                 foreach (var memberName in memberNames)
                 {
-                    var currentHeader = string.Empty;
-                    var rowValue = GetRowValue(i, table, memberName, out currentHeader, doTypeConversion);
-                    var instanceValue = Impromptu.InvokeGet(set[i], memberName);
+                  var currentHeader = string.Empty;
+                  var rowValue = GetRowValue(i, table, memberName, out currentHeader, doTypeConversion);
+                  var rowType = rowValue.GetType().Name;
+                  var instanceValue = Impromptu.InvokeGet(set[i], memberName);
+                  var instanceType = instanceValue.GetType().Name;
 
-                    if (!instanceValue.Equals(rowValue))
-                    {
-                        var difference = string.Format(ERRORMESS_SET_VALUES_DIFFERS,
-                                                       i + 1, 
-                                                       currentHeader, 
-                                                       memberName, 
-                                                       instanceValue, 
-                                                       rowValue);
+                  if (!instanceValue.Equals(rowValue))
+                  {
+                      var difference = string.Format(ERRORMESS_SET_VALUES_DIFFERS,
+                                                     i + 1, 
+                                                     currentHeader, 
+                                                     memberName, 
+                                                     instanceValue, 
+                                                     instanceType,
+                                                     rowValue,
+                                                     rowType);
 
-                        valueDifference.Add(difference);
-                    }
+                      valueDifference.Add(difference);
+                  }
                 }
             }
             return valueDifference;
@@ -177,11 +182,13 @@ namespace TechTalk.SpecFlow.Assist
             {
                 var propertyName = CreatePropertyName(header);
                 var valueFromInstance = Impromptu.InvokeGet(instance, propertyName);
+                var typeFromInstance = valueFromInstance.GetType().Name;
                 var valueFromTable = CreateTypedValue(tableRow[header], doTypeConversion);
+                var typeFromTable = valueFromTable.GetType().Name;
 
                 if (!valueFromInstance.Equals(valueFromTable))
                 {
-                    var mess = string.Format(ERRORMESS_VALUE_DIFFERS, propertyName, valueFromInstance, valueFromTable);
+                    var mess = string.Format(ERRORMESS_VALUE_DIFFERS, propertyName, valueFromInstance, typeFromInstance, valueFromTable, typeFromTable);
                     valueDiffs.Add(mess);
                 }
             }
