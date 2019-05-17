@@ -14,4 +14,8 @@
     <PackageReference Include="SpecFlow" Version="3.0.213" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SpecFlow.Assist.Dynamic\SpecFlow.Assist.Dynamic.csproj" />
+  </ItemGroup>
+
 </Project>
