@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using System.Collections.Generic;
 
 namespace Specs.Steps
 {
