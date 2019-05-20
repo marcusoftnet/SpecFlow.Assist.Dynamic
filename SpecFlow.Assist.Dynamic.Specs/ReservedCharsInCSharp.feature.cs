@@ -81,12 +81,12 @@ namespace SpecFlow.Assist.Dynamic.Specs
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                         "C$harp n@me (with strange chars)"});
-            table38.AddRow(new string[] {
+            table33.AddRow(new string[] {
                         "A value"});
 #line 8
-    testRunner.When("I create a dynamic instance from this table", ((string)(null)), table38, "When ");
+    testRunner.When("I create a dynamic instance from this table", ((string)(null)), table33, "When ");
 #line 11
     testRunner.Then("the CharpNmeWithStrangeChars property should equal \'A value\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -104,14 +104,14 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                         "My_Nice_Variable",
                         "My $$ Variable (needs clean up)"});
-            table39.AddRow(new string[] {
+            table34.AddRow(new string[] {
                         "A value",
                         "Another value"});
 #line 16
-       testRunner.When("I create a dynamic instance from this table", ((string)(null)), table39, "When ");
+       testRunner.When("I create a dynamic instance from this table", ((string)(null)), table34, "When ");
 #line 19
     testRunner.Then("the My_Nice_Variable property should equal \'A value\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 20
@@ -131,12 +131,12 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                         "$@()"});
-            table40.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "A value"});
 #line 24
-    testRunner.When("I create a dynamic instance with only reserved chars", ((string)(null)), table40, "When ");
+    testRunner.When("I create a dynamic instance with only reserved chars", ((string)(null)), table35, "When ");
 #line 27
     testRunner.Then("an exception with a nice error message about the property only containing reserve" +
                     "d chars should be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

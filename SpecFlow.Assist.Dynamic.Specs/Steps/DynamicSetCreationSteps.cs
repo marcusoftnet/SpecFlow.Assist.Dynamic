@@ -10,9 +10,12 @@ namespace Specs.Steps
   [Binding]
   public class DynamicSetCreationSteps
   {
-    private static dynamic GetItem(int itemNumber)
+    private readonly State state;
+
+    public DynamicSetCreationSteps(State state) => this.state = state;
+    private dynamic GetItem(int itemNumber)
     {
-      return State.OriginalSet[itemNumber - 1];
+      return this.state.OriginalSet[itemNumber - 1];
     }
 
 
@@ -20,20 +23,20 @@ namespace Specs.Steps
     [When(@"I create a set of dynamic instances from this table")]
     public void WithMethodBInding(Table table)
     {
-      State.OriginalSet = table.CreateDynamicSet().ToList();
+      this.state.OriginalSet = table.CreateDynamicSet().ToList();
     }
 
     [Given(@"I create a set of dynamic instances from this table using no type conversion")]
     public void WithMethodBIndingNoTypeConversion(Table table)
     {
-      State.OriginalSet = table.CreateDynamicSet(false).ToList();
+      this.state.OriginalSet = table.CreateDynamicSet(false).ToList();
     }
 
 
     [Then(@"I should have a list of (\d+) dynamic objects")]
     public void ShouldContain(int expectedNumberOfItems)
     {
-      Assert.AreEqual(expectedNumberOfItems, State.OriginalSet.Count);
+      Assert.AreEqual(expectedNumberOfItems, this.state.OriginalSet.Count);
     }
 
     [Then(@"the (\d+) item should have BirthDate equal to '(.*)'")]
@@ -76,8 +79,7 @@ namespace Specs.Steps
     [When(@"I create a set of dynamic instances from this table using no type conversion")]
     public void WhenICreateASetOfDynamicInstancesFromThisTableUsingNoTypeConversion(Table table)
     {
-      State.OriginalSet = table.CreateDynamicSet(false).ToList();
+      this.state.OriginalSet = table.CreateDynamicSet(false).ToList();
     }
-
   }
 }

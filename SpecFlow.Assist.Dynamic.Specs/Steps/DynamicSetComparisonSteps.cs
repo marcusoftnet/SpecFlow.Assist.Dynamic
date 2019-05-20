@@ -8,14 +8,16 @@ namespace Specs.Steps
   [Binding]
   public class DynamicSetComparisonSteps
   {
-    private const string EXCEPTION_KEY = "ExceptionKey";
+    private readonly State state;
 
-    private static DynamicSetComparisonException GetSetComparisonException()
+    public DynamicSetComparisonSteps(State state) => this.state = state;
+
+    private DynamicSetComparisonException GetSetComparisonException()
     {
-      return ScenarioContext.Current[EXCEPTION_KEY] as DynamicSetComparisonException;
+      return this.state.CurrentException as DynamicSetComparisonException;
     }
 
-    private static void CheckForOneDifferenceContainingString(string expectedString)
+    private void CheckForOneDifferenceContainingString(string expectedString)
     {
       var ex = GetSetComparisonException();
       var diffs = ((List<string>)ex.Differences);
@@ -28,11 +30,11 @@ namespace Specs.Steps
     {
       try
       {
-        table.CompareToDynamicSet(State.OriginalSet);
+        table.CompareToDynamicSet(this.state.OriginalSet);
       }
       catch (DynamicSetComparisonException ex)
       {
-        ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
+        this.state.CurrentException = ex;
       }
     }
 
@@ -41,18 +43,18 @@ namespace Specs.Steps
     {
       try
       {
-        table.CompareToDynamicSet(State.OriginalSet, false);
+        table.CompareToDynamicSet(this.state.OriginalSet, false);
       }
       catch (DynamicSetComparisonException ex)
       {
-        ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
+        this.state.CurrentException = ex;
       }
     }
 
     [Then(@"no set comparison exception should have been thrown")]
     public void NoSetExceptionThrown()
     {
-      Assert.IsFalse(ScenarioContext.Current.ContainsKey(EXCEPTION_KEY));
+      Assert.IsNull(this.state.CurrentException);
     }
 
     [Then(@"an set comparison exception should be thrown")]
@@ -95,11 +97,8 @@ namespace Specs.Steps
     {
       var exception = GetSetComparisonException();
       var difference = exception.Differences[differenceNumber - 1];
-      // I ADDED Assert.IsTrue() here 190518
-      Assert.IsTrue(difference.Contains("'" + rowNumber + "'"));
-      Assert.IsTrue(difference.Contains("'" + expectedProperty + "'"));
-      Assert.IsTrue(difference.Contains("'" + instanceValue + "'"));
-      Assert.IsTrue(difference.Contains("'" + tableRowValue + "'"));
+      CheckForOneDifferenceContainingString("'" + rowNumber + "'");
+      CheckForOneDifferenceContainingString("'" + expectedProperty + "'");
     }
   }
 }

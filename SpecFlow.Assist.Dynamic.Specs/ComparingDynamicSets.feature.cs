@@ -76,7 +76,7 @@ namespace SpecFlow.Assist.Dynamic.Specs
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Comparing against an identical table should match", null, ((string[])(null)));
 #line 7
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
@@ -105,7 +105,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "2010-03-19",
                         "0.85"});
 #line 8
- testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table15, "Given ");
+  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table15, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -133,9 +133,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "2010-03-19",
                         "0.85"});
 #line 14
- testRunner.When("I compare the set to this table", ((string)(null)), table16, "When ");
+  testRunner.When("I compare the set to this table", ((string)(null)), table16, "When ");
 #line 20
- testRunner.Then("no set comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("no set comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -146,7 +146,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when 1 column name differ", null, ((string[])(null)));
 #line 22
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
@@ -160,7 +160,7 @@ this.ScenarioInitialize(scenarioInfo);
             table17.AddRow(new string[] {
                         "Arvid"});
 #line 23
- testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table17, "Given ");
+  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table17, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "N"});
@@ -173,9 +173,9 @@ this.ScenarioInitialize(scenarioInfo);
             table18.AddRow(new string[] {
                         "Arvid"});
 #line 29
- testRunner.When("I compare the set to this table", ((string)(null)), table18, "When ");
+  testRunner.When("I compare the set to this table", ((string)(null)), table18, "When ");
 #line 35
- testRunner.Then("an set comparision exception should be thrown with 2 differences", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("an set comparision exception should be thrown with 2 differences", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 36
   testRunner.And("one set difference should be on the \'Name\' field of the instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 37
@@ -190,7 +190,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when 2 header differ", null, ((string[])(null)));
 #line 39
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
@@ -209,7 +209,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Arvid",
                         "1"});
 #line 40
- testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table19, "Given ");
+  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table19, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                         "Namn",
@@ -227,9 +227,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "Arvid",
                         "1"});
 #line 46
- testRunner.When("I compare the set to this table", ((string)(null)), table20, "When ");
+  testRunner.When("I compare the set to this table", ((string)(null)), table20, "When ");
 #line 52
- testRunner.Then("an set comparision exception should be thrown with 4 differences", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("an set comparision exception should be thrown with 4 differences", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 53
   testRunner.And("one set difference should be on the \'Name\' field of the instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 54
@@ -248,7 +248,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not matching when the number of rows are more in the table", null, ((string[])(null)));
 #line 58
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
@@ -261,7 +261,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Albert",
                         "3"});
 #line 59
- testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table21, "Given ");
+  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table21, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -276,9 +276,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "Arvid",
                         "1"});
 #line 63
- testRunner.When("I compare the set to this table", ((string)(null)), table22, "When ");
+  testRunner.When("I compare the set to this table", ((string)(null)), table22, "When ");
 #line 68
- testRunner.Then("an set comparison exception should be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("an set comparison exception should be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 69
   testRunner.And("the error message for different rows should expect 3 rows for table and 2 rows fo" +
                     "r instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -292,7 +292,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Differences on 1 value in 1 row should throw exceptions", null, ((string[])(null)));
 #line 71
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
@@ -311,7 +311,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "2008-01-24",
                         "1.03"});
 #line 72
- testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table23, "Given ");
+  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table23, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -329,9 +329,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "2008-01-24",
                         "1.03"});
 #line 76
- testRunner.When("I compare the set to this table", ((string)(null)), table24, "When ");
+  testRunner.When("I compare the set to this table", ((string)(null)), table24, "When ");
 #line 80
- testRunner.Then("an set comparision exception should be thrown with 1 difference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("an set comparision exception should be thrown with 1 difference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 81
   testRunner.And("1 difference should be on row 1 on property \'Name\' for the values \'Marcus\' and \'H" +
                     "ugo\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -345,7 +345,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Differences on 2 value in 2 different row should throw exceptions", null, ((string[])(null)));
 #line 83
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
@@ -364,7 +364,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "2008-01-24",
                         "0.03"});
 #line 84
- testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table25, "Given ");
+  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table25, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -382,9 +382,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "2008-01-24",
                         "1.03"});
 #line 88
- testRunner.When("I compare the set to this table", ((string)(null)), table26, "When ");
+  testRunner.When("I compare the set to this table", ((string)(null)), table26, "When ");
 #line 92
- testRunner.Then("an set comparision exception should be thrown with 2 difference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("an set comparision exception should be thrown with 2 difference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 93
   testRunner.And("1 difference should be on row 1 on property \'Name\' for the values \'Marcus\' and \'H" +
                     "ugo\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -401,7 +401,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Differences on 4 value on 1 row should throw exceptions", null, ((string[])(null)));
 #line 96
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
             TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
@@ -420,7 +420,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "2008-01-24",
                         "1.03"});
 #line 97
- testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table27, "Given ");
+  testRunner.Given("I create a set of dynamic instances from this table", ((string)(null)), table27, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -438,9 +438,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "2010-01-24",
                         "0.03"});
 #line 101
- testRunner.When("I compare the set to this table", ((string)(null)), table28, "When ");
+  testRunner.When("I compare the set to this table", ((string)(null)), table28, "When ");
 #line 105
- testRunner.Then("an set comparision exception should be thrown with 4 difference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("an set comparision exception should be thrown with 4 difference", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 106
   testRunner.And("1 difference should be on row 2 on property \'Name\' for the values \'Marcus\' and \'H" +
                     "ugo\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -9,17 +9,17 @@ namespace Specs.Steps
   [Binding]
   public class DynamicInstanceComparisionSteps
   {
+    private readonly State state;
+    public DynamicInstanceComparisionSteps(State state) => this.state = state;
 
-    private const string EXCEPTION_KEY = "ExceptionKey";
-
-    private static DynamicInstanceComparisonException GetInstanceComparisonException()
+    private DynamicInstanceComparisonException GetInstanceComparisonException()
     {
-      var ex = ScenarioContext.Current[EXCEPTION_KEY] as DynamicInstanceComparisonException;
+      var ex = this.state.CurrentException as DynamicInstanceComparisonException;
       Assert.NotNull(ex);
       return ex;
     }
 
-    private static void CheckForOneDifferenceContainingString(string expectedString)
+    private void CheckForOneDifferenceContainingString(string expectedString)
     {
       var ex = GetInstanceComparisonException();
       var diffs = ((List<string>)ex.Differences);
@@ -32,26 +32,26 @@ namespace Specs.Steps
     {
       try
       {
-        table.CompareToDynamicInstance((object)State.OriginalInstance);
+        var org = (object)this.state.OriginalInstance;
+        table.CompareToDynamicInstance(org);
       }
       catch (DynamicInstanceComparisonException ex)
       {
-        ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
+        this.state.CurrentException = ex;
       }
     }
 
     [Then("no instance comparison exception should have been thrown")]
     public void NoException()
     {
-      Assert.False(ScenarioContext.Current.ContainsKey(EXCEPTION_KEY));
+      Assert.IsNull(this.state.CurrentException);
     }
 
     [Then(@"an instance comparison exception should be thrown with (\d+) differences")]
     [Then(@"an instance comparison exception should be thrown with (\d+) difference")]
     public void ExceptionShouldHaveBeenThrown(int expectedNumberOfDifferences)
     {
-      Assert.IsTrue(ScenarioContext.Current.ContainsKey(EXCEPTION_KEY));
-
+      Assert.IsNotNull(this.state.CurrentException);
       var ex = GetInstanceComparisonException();
       Assert.AreEqual(expectedNumberOfDifferences, ex.Differences.Count);
     }
@@ -91,13 +91,13 @@ namespace Specs.Steps
     {
       try
       {
-        table.CompareToDynamicInstance((object)State.OriginalInstance, false);
+        var org = (object)this.state.OriginalInstance;
+        table.CompareToDynamicInstance(org, false);
       }
       catch (DynamicInstanceComparisonException ex)
       {
-        ScenarioContext.Current.Add(EXCEPTION_KEY, ex);
+        this.state.CurrentException = ex;
       }
     }
-
   }
 }
