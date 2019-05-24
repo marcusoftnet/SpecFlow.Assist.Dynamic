@@ -79,33 +79,33 @@ namespace SpecFlow.Assist.Dynamic.Specs
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Age",
                         "Birth date",
                         "Length in meters"});
-            table32.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "Marcus",
                         "39",
                         "1972-10-09",
                         "1.96"});
-            table32.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "Albert",
                         "3",
                         "2008-01-24",
                         "1.03"});
-            table32.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "Gustav",
                         "1",
                         "2010-03-19",
                         "0.84"});
-            table32.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "Arvid",
                         "1",
                         "2010-03-19",
                         "0.85"});
 #line 7
- testRunner.When("I create a set of dynamic instances from this table", ((string)(null)), table32, "When ");
+ testRunner.When("I create a set of dynamic instances from this table", ((string)(null)), table37, "When ");
 #line 13
  testRunner.Then("I should have a list of 4 dynamic objects", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 14

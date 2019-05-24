@@ -79,18 +79,18 @@ namespace SpecFlow.Assist.Dynamic.Specs
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Age",
                         "Birth date",
                         "Length in meters"});
-            table29.AddRow(new string[] {
+            table34.AddRow(new string[] {
                         "Marcus",
                         "39",
                         "1972-10-09",
                         "1.96"});
 #line 7
- testRunner.When("I create a dynamic instance from this table", ((string)(null)), table29, "When ");
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table34, "When ");
 #line 10
  testRunner.Then("the Name property should equal \'Marcus\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
@@ -112,14 +112,14 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Age"});
-            table30.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "Marcus",
                         "39"});
 #line 16
- testRunner.When("I create a dynamic instance from this table", ((string)(null)), table30, "When ");
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table35, "When ");
 #line 19
  testRunner.Then("the Name property should equal \'Marcus\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 20
@@ -137,23 +137,23 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
-            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
                         "Field",
                         "Value"});
-            table31.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "Name",
                         "Marcus"});
-            table31.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "Age",
                         "39"});
-            table31.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "Birth date",
                         "1972-10-09"});
-            table31.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "Length in meters",
                         "1.96"});
 #line 23
- testRunner.When("I create a dynamic instance from this table", ((string)(null)), table31, "When ");
+ testRunner.When("I create a dynamic instance from this table", ((string)(null)), table36, "When ");
 #line 29
  testRunner.Then("the Name property should equal \'Marcus\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 30

@@ -31,8 +31,8 @@ namespace SpecFlow.Assist.Dynamic.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Create dynamic sets and instance with step argument transformations", "In order to write super slick and easy code\nAs a SpecFlow step definition develop" +
-                    "er\nI want to be able to define the types as argument to the step", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Create dynamic sets and instance with step argument transformations", "  In order to write super slick and easy code\n  As a SpecFlow step definition dev" +
+                    "eloper\n  I want to be able to define the types as argument to the step", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -68,6 +68,152 @@ namespace SpecFlow.Assist.Dynamic.Specs
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creating dynamic set with the use of step argument transformation")]
+        public virtual void CreatingDynamicSetWithTheUseOfStepArgumentTransformation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating dynamic set with the use of step argument transformation", null, ((string[])(null)));
+#line 6
+  this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table29.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table29.AddRow(new string[] {
+                        "Albert",
+                        "3",
+                        "2008-01-24",
+                        "1.03"});
+            table29.AddRow(new string[] {
+                        "Gustav",
+                        "1",
+                        "2010-03-19",
+                        "0.84"});
+            table29.AddRow(new string[] {
+                        "Arvid",
+                        "1",
+                        "2010-03-19",
+                        "0.85"});
+#line 7
+    testRunner.Given("I create a set of dynamic instances from this table using step argument transform" +
+                    "ation", ((string)(null)), table29, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters"});
+            table30.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96"});
+            table30.AddRow(new string[] {
+                        "Albert",
+                        "3",
+                        "2008-01-24",
+                        "1.03"});
+            table30.AddRow(new string[] {
+                        "Gustav",
+                        "1",
+                        "2010-03-19",
+                        "0.84"});
+            table30.AddRow(new string[] {
+                        "Arvid",
+                        "1",
+                        "2010-03-19",
+                        "0.85"});
+#line 13
+    testRunner.When("I compare the set to this table using step argument transformation", ((string)(null)), table30, "When ");
+#line 19
+    testRunner.Then("no set comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Matching a dynamic instance against a table")]
+        public virtual void MatchingADynamicInstanceAgainstATable()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Matching a dynamic instance against a table", null, ((string[])(null)));
+#line 21
+  this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters",
+                        "Is Developer"});
+            table31.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96",
+                        "true"});
+#line 22
+    testRunner.Given("I create a dynamic instance from this table using step argument transformation", ((string)(null)), table31, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters",
+                        "Is Developer"});
+            table32.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96",
+                        "true"});
+#line 25
+    testRunner.When("I compare it to this table using step argument transformation", ((string)(null)), table32, "When ");
+#line 28
+    testRunner.Then("no instance comparison exception should have been thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Test property with step argument transformation")]
+        public virtual void TestPropertyWithStepArgumentTransformation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test property with step argument transformation", null, ((string[])(null)));
+#line 30
+  this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age",
+                        "Birth date",
+                        "Length in meters",
+                        "Is Developer"});
+            table33.AddRow(new string[] {
+                        "Marcus",
+                        "39",
+                        "1972-10-09",
+                        "1.96",
+                        "true"});
+#line 31
+    testRunner.Given("I create a dynamic instance from this table using step argument transformation", ((string)(null)), table33, "Given ");
+#line 34
+    testRunner.Then("the Name property should equal \'Marcus\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 35
+    testRunner.And("the IsDeveloper property should equal \'true\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
         }
     }
 }
