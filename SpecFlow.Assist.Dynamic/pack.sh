@@ -6,4 +6,6 @@ dotnet clean
 dotnet test
 dotnet build -c Release
 
-dotnet pack ./SpecFlow.Assist.Dynamic.csproj -c Release /p:NuspecFile=./SpecFlow.Assist.Dynamic.nuspec
+dotnet pack ./SpecFlow.Assist.Dynamic.csproj -p:NuspecFile=./SpecFlow.Assist.Dynamic.nuspec -c Release
+
+open ./bin/Release
