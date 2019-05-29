@@ -11,12 +11,15 @@
     <id>SpecFlow.Assist.Dynamic</id>
     <title>SpecFlow.Assist.Dynamic</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Adds support for dynamic instances and set from SpecFlow tables</description>
+    <license type="expression">MIT</license>
+    <tags>SpecFlow, Gherkin, Cucumber, Dynamic</tags>
+    <description>Adds support for dynamic instances and sets from SpecFlow tables</description>
 	  <summary>See documentation at https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Documentation</summary>
     <copyright>Copyright © Marcus Hammarberg  2019</copyright>
     <projectUrl>http://marcusoftnet.github.com/SpecFlow.Assist.Dynamic/</projectUrl>
+    <repositoryUrl>https://github.com/marcusoftnet/specflow.assist.dynamic</repositoryUrl>
   </metadata>
   <files>
-    <file src="lib\**" target="lib/{framework name}[{version}]" />
+    <file src="**" target="lib/{framework name}[{version}]" />
   </files>
 </package>
