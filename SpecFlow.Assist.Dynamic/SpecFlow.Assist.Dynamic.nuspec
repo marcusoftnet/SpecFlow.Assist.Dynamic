@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <version>1.4.0-beta</version>
+    <version>1.4.1-alpha</version>
     <authors>www.marcusoft.net - Marcus Hammarberg</authors>
     <owners>www.marcusoft.net - Marcus Hammarberg</owners>
     <dependencies>
@@ -20,6 +20,11 @@
     <repositoryUrl>https://github.com/marcusoftnet/specflow.assist.dynamic</repositoryUrl>
   </metadata>
   <files>
-    <file src="**" target="lib/{framework name}[{version}]" />
+    <file src="bin/Release/net452/SpecFlow.Assist.Dynamic.dll" target="lib\452" />
+    <file src="bin/Release/net462/SpecFlow.Assist.Dynamic.dll" target="lib\462" />
+    <file src="bin/Release/net472/SpecFlow.Assist.Dynamic.dll" target="lib\472" />
+    <file src="bin/Release/netstandard2.0/SpecFlow.Assist.Dynamic.dll" target="lib\netstandard2.0" />
+
+    <!-- <file src="$SolutionDir$/../../LICENSE" target="LICENSE" /> -->
   </files>
 </package>
