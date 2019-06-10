@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <version>1.4.1-alpha</version>
+    <version>1.4.1</version>
     <authors>www.marcusoft.net - Marcus Hammarberg</authors>
     <owners>www.marcusoft.net - Marcus Hammarberg</owners>
     <dependencies>

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageVersion>1.4.0-beta</PackageVersion>
+    <PackageVersion>1.4.1</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>
