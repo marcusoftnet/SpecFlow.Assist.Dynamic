@@ -1,12 +1,30 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <version>1.4.1</version>
+    <version>1.4.2-beta</version>
     <authors>www.marcusoft.net - Marcus Hammarberg</authors>
     <owners>www.marcusoft.net - Marcus Hammarberg</owners>
     <dependencies>
-      <dependency id="Dynamitey" version="2.0.9.136" />
-      <dependency id="SpecFlow" version="3.0.213" />
+      <group targetFramework=".NETFramework4.5.2">
+        <dependency id="Dynamitey" version="2.0.9.136" />
+        <dependency id="SpecFlow" version="3.0.213" />
+      </group>
+      <group targetFramework=".NETFramework4.6.1">
+        <dependency id="Dynamitey" version="2.0.9.136" />
+        <dependency id="SpecFlow" version="3.0.213" />
+      </group>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Dynamitey" version="2.0.9.136" />
+        <dependency id="SpecFlow" version="3.0.213" />
+      </group>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="Dynamitey" version="2.0.9.136" />
+        <dependency id="SpecFlow" version="3.0.213" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Dynamitey" version="2.0.9.136" />
+        <dependency id="SpecFlow" version="3.0.213" />
+      </group>
     </dependencies>
     <id>SpecFlow.Assist.Dynamic</id>
     <title>SpecFlow.Assist.Dynamic</title>
@@ -15,14 +33,15 @@
     <tags>SpecFlow, Gherkin, Cucumber, Dynamic</tags>
     <description>Adds support for dynamic instances and sets from SpecFlow tables</description>
 	  <summary>See documentation at https://github.com/marcusoftnet/SpecFlow.Assist.Dynamic/wiki/Documentation</summary>
-    <copyright>Copyright © Marcus Hammarberg  2019</copyright>
+    <copyright>Copyright © Marcus Hammarberg  2020</copyright>
     <projectUrl>http://marcusoftnet.github.com/SpecFlow.Assist.Dynamic/</projectUrl>
     <repositoryUrl>https://github.com/marcusoftnet/specflow.assist.dynamic</repositoryUrl>
   </metadata>
   <files>
-    <file src="bin/Release/net452/SpecFlow.Assist.Dynamic.dll" target="lib\452" />
-    <file src="bin/Release/net462/SpecFlow.Assist.Dynamic.dll" target="lib\462" />
-    <file src="bin/Release/net472/SpecFlow.Assist.Dynamic.dll" target="lib\472" />
+    <file src="bin/Release/net452/SpecFlow.Assist.Dynamic.dll" target="lib\net452" />
+    <file src="bin/Release/net461/SpecFlow.Assist.Dynamic.dll" target="lib\net461" />
+    <file src="bin/Release/net462/SpecFlow.Assist.Dynamic.dll" target="lib\net462" />
+    <file src="bin/Release/net472/SpecFlow.Assist.Dynamic.dll" target="lib\net472" />
     <file src="bin/Release/netstandard2.0/SpecFlow.Assist.Dynamic.dll" target="lib\netstandard2.0" />
 
     <!-- <file src="$SolutionDir$/../../LICENSE" target="LICENSE" /> -->
